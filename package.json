@@ -2,7 +2,7 @@
   "name": "wastenot",
   "version": "0.0.1",
   "private": true,
-	"author": "Casey and Casey",
+  "author": "Casey and Casey",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
@@ -11,6 +11,7 @@
     "immutable": "^3.8.1",
     "react": "15.4.1",
     "react-native": "0.39.2",
+    "react-native-lock": "^0.4.0",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"
