@@ -13,7 +13,7 @@ import Auth0Lock from 'react-native-lock';
 var credentials = require('../../Auth0-credentials');
 var lock = new Auth0Lock(credentials);
 
-export default class Login extends Component{
+class Login extends Component{
   constructor (props) {
    super(props);
  }
@@ -48,6 +48,8 @@ export default class Login extends Component{
     })
   }
 }
+
+export default userContainer(Login)
 
 const styles = StyleSheet.create({
   container: {
