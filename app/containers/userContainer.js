@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { actionCreators } from '../actions/userActions';
 
-const mapStateToProps = (user) => {
-  return { user };
+const mapStateToProps = (state) => {
+  return { user: state.user };
 };
 
 const mapDispatchToProps = (dispatch) => {

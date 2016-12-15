@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dimensions from 'Dimensions';
+import Auth0Lock from 'react-native-lock';
 import {
   StyleSheet,
   Text,
@@ -9,9 +10,10 @@ import {
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
-import Auth0Lock from 'react-native-lock';
-var credentials = require('../../Auth0-credentials');
-var lock = new Auth0Lock(credentials);
+import { Auth0creds } from '../../Auth0-credentials';
+import Profile from './Profile';
+
+var lock = new Auth0Lock(Auth0creds);
 
 class Login extends Component{
   constructor (props) {
@@ -22,7 +24,7 @@ class Login extends Component{
     return (
       <View style={styles.container}>
         <View style={styles.messageBox}>
-          <Text style={styles.title}>Wastenot!</Text>
+          <Text style={styles.title}>Refuel</Text>
         </View>
         <TouchableHighlight
           style={styles.signInButton}
@@ -43,8 +45,12 @@ class Login extends Component{
           console.log(err);
           return;
         }
-        console.log('logged in!')
-        getUser(profile);
+        getUser(profile)
+        this.props.navigator.push({
+          component: Profile,
+          title: 'Your Profile',
+          token: token
+        })
     })
   }
 }

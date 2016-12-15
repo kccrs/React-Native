@@ -11,6 +11,7 @@ import {
 import Login from './Login';
 import Profile from './Profile';
 
+
 const routes = [
   { component: Login, title: 'Login to get your recycle on'},
   { component: Profile, title: 'Profile' }
@@ -22,6 +23,7 @@ export default class App extends Component {
   }
 
   render() {
+    // const {}
       return (
         <Navigator style={styles.navigator}
           initialRoute={routes[0]}
@@ -66,7 +68,7 @@ var NavigationBarRouteMapper = {
   },
 
   Title(route, navigator, index, navState) {
-    return <Text style={ styles.navTitle }>Wastenot!</Text>
+    return <Text style={ styles.navTitle }>Refuel</Text>
   }
 };
 

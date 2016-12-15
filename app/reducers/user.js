@@ -1,20 +1,16 @@
 import * as types from '../actions/actionTypes';
 
-const initialState = [];
+const initialState = {};
 
 const user = (state = initialState, action) => {
-  const { user } = state;
   const { type, data } = action;
 
   switch (type) {
     case 'GET_USER':
-      return {
-        ...state,
-        user: data
-      }
+      return data;
   }
 
   return state;
-}
+};
 
 export default user;

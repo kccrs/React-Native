@@ -13,6 +13,8 @@ import {
   Animated
 } from 'react-native';
 
+import userContainer from '../containers/userContainer';
+
 class Profile extends Component{
   constructor (props) {
    super(props);
@@ -22,15 +24,28 @@ class Profile extends Component{
 
  render() {
    const { user } = this.props;
+   if (user) {
+     return (
+       <View>
+         <Text style={styles.title}>Hello!  This is the profile page!</Text>
+       </View>
+     )
+   }
+  return (null)
+ }
 
-    return (
-      <View>
-        <Text>{user.name}</Text>
-        <Text>{user.email}</Text>
-        <Image source={{uri: user.picture}} />
-      </View>
-    )
+sendEmail = () => {
+  const { user } = this.this.props
+  if (user) {
+    Linking.canOpenURL(user.email).then(supported => {
+      if (supported) {
+        Linking.openURL(user.email);
+      } else {
+        console.log('Don\'t know how to open URI: ' + user.email);
+      }
+    })
   }
+}
 }
 
 export default userContainer(Profile)
