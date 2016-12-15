@@ -1,0 +1,62 @@
+https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key={our-key-here}&state=CO
+
+Optional Query Params:
+  -currently open, temp unavail, planned future stations
+  -public, private, all
+  -fuel type: all, bd20&up, cng, e85, elec, hydrogen, lng, lpg
+  -cards accepted
+  -owner type: private, utility, fed, local gov, state gov, joing
+  -if feds, federal agency id
+  -ev network e.g. tesla
+  -ev charging level
+  -ev connector type
+  -state eg CO
+  -zip..YAY! can comma separate for more than one
+  -limit...default is all. docs: 'they return in random order, so this is of limited use'
+
+
+Response Fields:
+  Meta data:
+    -total # matching stations for the query
+    -station locator url?!
+    -array of fuel stations in no order.
+
+  Per-station data:
+    "access_days_time":"7am-7pm M-Th and Sat, 7am-8pm F, 9am-5pm Sun",
+    "cards_accepted":"Cash A D M V","date_last_confirmed":"2016-11-02",
+    "expected_date":null,
+    "fuel_type_code":"LPG",
+    "id":43883,
+    "groups_with_access_code":"Public",
+    "open_date":null,
+    "owner_type_code":"P",
+    "status_code":"E",
+    "station_name":"U-Haul",
+    "station_phone":"303-534-6072",
+    "updated_at":"2016-11-02T17:21:40Z",
+    "geocode_status":"200-8", //how accurate is the lat and long? (1-9), higher is better
+    "latitude":39.7398141,
+    "longitude":-105.0159387,
+    "city":"Denver",
+    "intersection_directions":"At Zuni, north of 14th St",
+    "plus4":null, //zip code extension
+    "state":"CO",
+    "street_address":"2000 W Lower Colfax Ave",
+    "zip":"80204",
+    "bd_blends":null,
+    "e85_blender_pump":null,
+    "ev_connector_types":null,
+    "ev_dc_fast_num":null,
+    "ev_level1_evse_num":null,
+    "ev_level2_evse_num":null,
+    "ev_network":null,
+    "ev_network_web":null,
+    "ev_other_evse":null,
+    "hy_status_link":null,
+    "lpg_primary":false,
+    "ng_fill_type_code":null,
+    "ng_psi":null,
+    "ng_vehicle_class":null
+
+national proportions:
+{"total":54027,"fuels":{"E85":{"total":3120},"ELEC":{"total":44366,"stations":{"total":17632}},"HY":{"total":86},"LNG":{"total":190},"BD":{"total":721},"CNG":{"total":1852},"LPG":{"total":3692}}}

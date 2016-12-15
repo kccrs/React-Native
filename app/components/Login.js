@@ -9,6 +9,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+
 import userContainer from '../containers/userContainer';
 import { Auth0creds } from '../../Auth0-credentials';
 import Profile from './Profile';
