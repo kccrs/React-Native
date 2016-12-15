@@ -9,6 +9,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+import userContainer from '../containers/userContainer';
 import { Auth0creds } from '../../Auth0-credentials';
 import userContainer from '../containers/userContainer';
 
@@ -23,7 +24,7 @@ class Login extends Component{
     return (
       <View style={styles.container}>
         <View style={styles.messageBox}>
-          <Text style={styles.title}>Wastenot!</Text>
+          <Text style={styles.title}>Refuel</Text>
         </View>
         <TouchableHighlight
           style={styles.signInButton}
@@ -44,8 +45,13 @@ class Login extends Component{
           console.log(err);
           return;
         }
-        console.log('logged in!')
-        getUser(profile);
+        getUser(profile)
+        this.props.navigator.push({
+          component: Profile,
+          title: 'Your Profile',
+          token: token
+          console.log('logged in!')
+        })
     })
   }
 }
