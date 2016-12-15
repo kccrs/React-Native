@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 
 import Login from './Login';
+import Profile from './Profile';
 
 const routes = [
-  { component: Login, title: 'Login to get books'}
-]
+  { component: Login, title: 'Login to get your recycle on'},
+  { component: Profile, title: 'Profile' }
+];
 
 export default class App extends Component {
   constructor(props){
