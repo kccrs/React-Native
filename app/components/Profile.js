@@ -19,33 +19,43 @@ class Profile extends Component{
   constructor (props) {
    super(props);
    this.state = {
+     initialPosition: 'unknown',
+     lastPosition: 'unknown',
    };
  }
+
+ componentDidMount() {
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      var initialPosition = JSON.stringify(position);
+      this.setState({initialPosition});
+    },
+    (error) => alert(JSON.stringify(error)),
+    {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+  );
+  this.watchID = navigator.geolocation.watchPosition((position) => {
+    var lastPosition = JSON.stringify(position);
+    this.setState({lastPosition});
+  });
+}
+
+componentWillUnmount() {
+  navigator.geolocation.clearWatch(this.watchID);
+}
 
  render() {
    const { user } = this.props;
    if (user) {
      return (
        <View>
-         <Text style={styles.title}>Hello!  This is the profile page!</Text>
+         <Text style={styles.title}>
+          Hello!  Your location is: {this.state.lastPosition}
+         </Text>
        </View>
      )
    }
   return (null)
  }
-
-sendEmail = () => {
-  const { user } = this.this.props
-  if (user) {
-    Linking.canOpenURL(user.email).then(supported => {
-      if (supported) {
-        Linking.openURL(user.email);
-      } else {
-        console.log('Don\'t know how to open URI: ' + user.email);
-      }
-    })
-  }
-}
 }
 
 export default userContainer(Profile)
@@ -61,17 +71,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 42,
-    margin: 20,
+    margin: 40,
     fontWeight: '300',
   },
-  info: {
-    fontSize: 18,
-    margin: 20,
-    fontWeight: '100',
-  },
-  avatar: {
-    height: 150,
-    width: 150,
-    borderRadius: 75,
-  }
 });
