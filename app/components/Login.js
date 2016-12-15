@@ -11,7 +11,7 @@ import {
 
 import userContainer from '../containers/userContainer';
 import { Auth0creds } from '../../Auth0-credentials';
-import userContainer from '../containers/userContainer';
+import Profile from './Profile';
 
 var lock = new Auth0Lock(Auth0creds);
 
@@ -50,7 +50,6 @@ class Login extends Component{
           component: Profile,
           title: 'Your Profile',
           token: token
-          console.log('logged in!')
         })
     })
   }

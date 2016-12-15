@@ -27,9 +27,7 @@ class Profile extends Component{
    if (user) {
      return (
        <View>
-         <Text>{user.name}</Text>
-         <Text>{user.email}</Text>
-         <Image source={{uri: user.picture}} />
+         <Text style={styles.title}>Hello!  This is the profile page!</Text>
        </View>
      )
    }
