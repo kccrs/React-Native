@@ -9,16 +9,10 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-<<<<<<< HEAD
-// import userContainer from '../containers/userContainer'
-import Auth0Lock from 'react-native-lock';
-import { Auth0creds } from '../../Auth0-credentials';
-var lock = new Auth0Lock(Auth0creds);
-=======
+
 import userContainer from '../containers/userContainer';
 import { Auth0creds } from '../../Auth0-credentials';
 import Profile from './Profile';
->>>>>>> 4d9b223de354332d5a9a990dee3ac8476b486029
 
 var lock = new Auth0Lock(Auth0creds);
 
