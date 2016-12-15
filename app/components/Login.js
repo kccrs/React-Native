@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dimensions from 'Dimensions';
+import Auth0Lock from 'react-native-lock';
 import {
   StyleSheet,
   Text,
@@ -8,10 +9,10 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+import { Auth0creds } from '../../Auth0-credentials';
 import userContainer from '../containers/userContainer';
-import Auth0Lock from 'react-native-lock';
-var credentials = require('../../Auth0-credentials');
-var lock = new Auth0Lock(credentials);
+
+var lock = new Auth0Lock(Auth0creds);
 
 class Login extends Component{
   constructor (props) {
