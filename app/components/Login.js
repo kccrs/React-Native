@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Dimensions from 'Dimensions'
+import Dimensions from 'Dimensions';
+import Auth0Lock from 'react-native-lock';
 import {
   StyleSheet,
   Text,
@@ -8,21 +9,29 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+<<<<<<< HEAD
 // import userContainer from '../containers/userContainer'
 import Auth0Lock from 'react-native-lock';
 import { Auth0creds } from '../../Auth0-credentials';
 var lock = new Auth0Lock(Auth0creds);
+=======
+import userContainer from '../containers/userContainer';
+import { Auth0creds } from '../../Auth0-credentials';
+import Profile from './Profile';
+>>>>>>> 4d9b223de354332d5a9a990dee3ac8476b486029
 
-export default class Login extends Component{
+var lock = new Auth0Lock(Auth0creds);
+
+class Login extends Component{
   constructor (props) {
-   super(props)
+   super(props);
  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.messageBox}>
-          <Text style={styles.title}>Wastenot!</Text>
+          <Text style={styles.title}>Refuel</Text>
         </View>
         <TouchableHighlight
           style={styles.signInButton}
@@ -35,7 +44,7 @@ export default class Login extends Component{
   }
 
   _onLogin() {
-    // const { getUser } = this.props
+    const { getUser } = this.props;
 
     lock.show({
       }, (err, profile, token) => {
@@ -43,11 +52,17 @@ export default class Login extends Component{
           console.log(err);
           return;
         }
-        console.log('logged in!')
-        // getUser(profile)
+        getUser(profile)
+        this.props.navigator.push({
+          component: Profile,
+          title: 'Your Profile',
+          token: token
+        })
     })
   }
 }
+
+export default userContainer(Login)
 
 const styles = StyleSheet.create({
   container: {
