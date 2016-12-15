@@ -12,7 +12,7 @@ import Login from './Login';
 
 const routes = [
   { component: Login, title: 'Login to get books'}
-]
+];
 
 export default class App extends Component {
   constructor(props){

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dimensions from 'Dimensions'
+import Dimensions from 'Dimensions';
 import {
   StyleSheet,
   Text,
@@ -8,14 +8,14 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-// import userContainer from '../containers/userContainer'
+import userContainer from '../containers/userContainer';
 import Auth0Lock from 'react-native-lock';
 var credentials = require('../../Auth0-credentials');
 var lock = new Auth0Lock(credentials);
 
 export default class Login extends Component{
   constructor (props) {
-   super(props)
+   super(props);
  }
 
   render() {
@@ -35,7 +35,7 @@ export default class Login extends Component{
   }
 
   _onLogin() {
-    // const { getUser } = this.props
+    const { getUser } = this.props;
 
     lock.show({
       }, (err, profile, token) => {
@@ -44,7 +44,7 @@ export default class Login extends Component{
           return;
         }
         console.log('logged in!')
-        // getUser(profile)
+        getUser(profile);
     })
   }
 }
