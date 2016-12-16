@@ -25,13 +25,14 @@ class Login extends Component{
     return (
       <View style={styles.container}>
         <View style={styles.messageBox}>
-          <Text style={styles.title}>Refuel</Text>
+          <Text style={styles.title}>Re:fuel</Text>
         </View>
+
         <TouchableHighlight
           style={styles.signInButton}
-          underlayColor='#949494'
+          underlayColor='#757575'
           onPress={this._onLogin.bind(this)}>
-          <Text>Log In</Text>
+          <Text style={styles.buttonText}>Log In</Text>
         </TouchableHighlight>
       </View>
     );
@@ -71,16 +72,20 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 48,
-    fontWeight: '100',
+    fontWeight: '300',
     textAlign: 'center',
   },
   signInButton: {
     height: 50,
     alignSelf: 'stretch',
-    backgroundColor: '#D9DADF',
+    backgroundColor: '#757575',
     margin: 10,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  buttonText: {
+    fontSize: 30,
+    color: '#FFF'
+  }
 });
