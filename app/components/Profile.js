@@ -23,12 +23,11 @@ class Profile extends Component{
    };
  }
 
- componentDidMount() {
-   console.log(this.props.user);
-}
+  componentDidMount() {
+  }
 
-componentWillUnmount() {
-}
+  componentWillUnmount() {
+  }
 
  render() {
    const { user } = this.props;
@@ -41,6 +40,7 @@ componentWillUnmount() {
          <Text style={styles.email}>
            {user.email}
          </Text>
+         <Image style={styles.photo} source={{uri: user.picture}} />
        </View>
      )
    }
@@ -56,19 +56,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingTop: 200,
+    paddingTop: 50,
   },
   name: {
-    fontSize: 42,
-    margin: 40,
+    fontSize: 30,
+    margin: 20,
     fontWeight: '300',
   },
-  info: {
+  email: {
     fontSize: 18,
     margin: 20,
     fontWeight: '100',
   },
-  avatar: {
+  photo: {
     height: 150,
     width: 150,
     borderRadius: 75,

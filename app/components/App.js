@@ -14,7 +14,6 @@ import Profile from './Profile';
 
 const routes = [
   { component: Login, title: 'Login to get your recycle on'},
-  
   { component: Profile, title: 'Profile' }
 ];
 
@@ -50,7 +49,7 @@ var NavigationBarRouteMapper = {
     if(index > 0) {
       return (
         <TouchableHighlight onPress={() => navigator.pop()}>
-          <Text style={styles.prevButton}>Prev</Text>
+          <Text style={styles.prevButton}>Back</Text>
         </TouchableHighlight>
       )
     }
@@ -78,21 +77,25 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   navTitle: {
-    marginTop:4,
-    fontSize:16,
+    marginTop: 2,
+    color: '#FFF',
+    fontSize: 20,
+    paddingBottom: 3
   },
   prevButton: {
+    color: '#FFF',
    	fontSize: 16,
-    marginLeft:15,
-    marginTop:2,
+    marginLeft: 15,
+    marginTop: 2,
   },
   nextButton: {
+    color: '#FFF',
     fontSize: 16,
-    marginRight:15,
-    marginTop:2,
+    marginRight: 15,
+    marginTop: 2,
   },
   nav: {
     height: 50,
-    backgroundColor: '#1E77E2',
+    backgroundColor: '#607D8B',
   }
 });
