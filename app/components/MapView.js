@@ -15,7 +15,7 @@ import {
 
 import userContainer from '../containers/userContainer';
 
-class Profile extends Component{
+class MapView extends Component{
   constructor (props) {
    super(props);
    this.state = {
@@ -58,7 +58,7 @@ componentWillUnmount() {
  }
 }
 
-export default userContainer(Profile)
+export default userContainer(MapView)
 
 const styles = StyleSheet.create({
   container: {

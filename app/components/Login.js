@@ -12,7 +12,7 @@ import {
 
 import userContainer from '../containers/userContainer';
 import { Auth0creds } from '../../Auth0-credentials';
-import Profile from './Profile';
+import Home from './Home';
 
 var lock = new Auth0Lock(Auth0creds);
 
@@ -48,7 +48,7 @@ class Login extends Component{
         }
         getUser(profile)
         this.props.navigator.push({
-          component: Profile,
+          component: Home,
           title: 'Your Profile',
           token: token
         })

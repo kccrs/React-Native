@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 
 import Login from './Login';
-import Profile from './Profile';
+import Home from './Home';
 
 
 const routes = [
   { component: Login, title: 'Login to get your recycle on'},
-  { component: Profile, title: 'Profile' }
+  { component: Home, title: 'Home' }
 ];
 
 export default class App extends Component {
