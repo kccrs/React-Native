@@ -14,6 +14,7 @@ import Profile from './Profile';
 
 const routes = [
   { component: Login, title: 'Login to get your recycle on'},
+  
   { component: Profile, title: 'Profile' }
 ];
 
@@ -68,7 +69,7 @@ var NavigationBarRouteMapper = {
   },
 
   Title(route, navigator, index, navState) {
-    return <Text style={ styles.navTitle }>Refuel</Text>
+    return <Text style={ styles.navTitle }>Re:fuel</Text>
   }
 };
 

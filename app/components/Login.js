@@ -25,7 +25,7 @@ class Login extends Component{
     return (
       <View style={styles.container}>
         <View style={styles.messageBox}>
-          <Text style={styles.title}>Refuel</Text>
+          <Text style={styles.title}>Re:fuel</Text>
         </View>
         <TouchableHighlight
           style={styles.signInButton}

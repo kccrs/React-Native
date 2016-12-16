@@ -19,27 +19,37 @@ class Profile extends Component{
   constructor (props) {
    super(props);
    this.state = {
-
+     initialPosition: 'unknown',
+     lastPosition: 'unknown',
    };
  }
 
  componentDidMount() {
-   console.log(this.props.user);
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      var initialPosition = JSON.stringify(position);
+      this.setState({initialPosition});
+    },
+    (error) => alert(JSON.stringify(error)),
+    {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+  );
+  this.watchID = navigator.geolocation.watchPosition((position) => {
+    var lastPosition = JSON.stringify(position);
+    this.setState({lastPosition});
+  });
 }
 
 componentWillUnmount() {
+  navigator.geolocation.clearWatch(this.watchID);
 }
 
  render() {
    const { user } = this.props;
    if (user) {
      return (
-       <View style={styles.container}>
-         <Text style={styles.name}>
-          Welcome {user.name}!
-         </Text>
-         <Text style={styles.email}>
-           {user.email}
+       <View>
+         <Text style={styles.title}>
+          Hello!  Your location is: {this.state.lastPosition}
          </Text>
        </View>
      )
@@ -48,6 +58,7 @@ componentWillUnmount() {
  }
 }
 
+export default userContainer(Profile)
 
 const styles = StyleSheet.create({
   container: {
@@ -58,21 +69,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 200,
   },
-  name: {
+  title: {
     fontSize: 42,
     margin: 40,
     fontWeight: '300',
   },
-  info: {
-    fontSize: 18,
-    margin: 20,
-    fontWeight: '100',
-  },
-  avatar: {
-    height: 150,
-    width: 150,
-    borderRadius: 75,
-  }
 });
-
-export default userContainer(Profile)
