@@ -10,11 +10,14 @@ import {
 
 import Login from './Login';
 import Home from './Home';
+import MapView from './MapView';
 
 
 const routes = [
-  { component: Login, title: 'Login to get your recycle on'},
-  { component: Home, title: 'Home' }
+  { component: Login, title: 'Login'},
+  { component: Home, title: 'Home' },
+  { component: MapView, title: 'Map' },
+  { component}
 ];
 
 export default class App extends Component {
@@ -49,7 +52,7 @@ var NavigationBarRouteMapper = {
     if(index > 0) {
       return (
         <TouchableHighlight onPress={() => navigator.pop()}>
-          <Text style={styles.prevButton}>Prev</Text>
+          <Text style={styles.prevButton}>{ routes[index - 1] ? `< Back to ${routes[index - 1].title}` : '< prev' }</Text>
         </TouchableHighlight>
       )
     }
@@ -60,7 +63,7 @@ var NavigationBarRouteMapper = {
     if(index > 0) {
       return (
         <TouchableHighlight onPress={() => navigator.push(routes[index + 1])}>
-          <Text style={styles.nextButton}>Next</Text>
+          <Text style={styles.nextButton}>{ routes[index + 1] ? `Go to ${routes[index + 1].title} >` : 'next >' }</Text>
         </TouchableHighlight>
       )
     }
@@ -68,7 +71,7 @@ var NavigationBarRouteMapper = {
   },
 
   Title(route, navigator, index, navState) {
-    return <Text style={ styles.navTitle }>Refuel</Text>
+    return <Text style={ styles.navTitle }>{route.title}</Text>
   }
 };
 

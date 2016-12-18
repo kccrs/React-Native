@@ -49,7 +49,7 @@ class Login extends Component{
         getUser(profile)
         this.props.navigator.push({
           component: Home,
-          title: 'Your Profile',
+          title: 'Home',
           token: token
         })
     })
