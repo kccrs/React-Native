@@ -9,16 +9,33 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-
 import userContainer from '../containers/userContainer';
 import { Auth0creds } from '../../Auth0-credentials';
 import Profile from './Profile';
 
 var lock = new Auth0Lock(Auth0creds);
 
-class Login extends Component{
+class Login extends Component {
   constructor (props) {
    super(props);
+ }
+
+ _onLogin() {
+   const { getUser } = this.props;
+
+   lock.show({
+   }, (err, profile, token) => {
+     if (err) {
+       console.log(err);
+       return;
+     }
+     getUser(profile);
+     this.props.navigator.push({
+       component: Profile,
+       title: 'Your Profile',
+       token: token
+     });
+   });
  }
 
   render() {
@@ -27,7 +44,6 @@ class Login extends Component{
         <View style={styles.messageBox}>
           <Text style={styles.title}>Re:fuel</Text>
         </View>
-
         <TouchableHighlight
           style={styles.signInButton}
           underlayColor='#757575'
@@ -37,27 +53,8 @@ class Login extends Component{
       </View>
     );
   }
-
-  _onLogin() {
-    const { getUser } = this.props;
-
-    lock.show({
-      }, (err, profile, token) => {
-        if (err) {
-          console.log(err);
-          return;
-        }
-        getUser(profile)
-        this.props.navigator.push({
-          component: Profile,
-          title: 'Your Profile',
-          token: token
-        })
-    })
-  }
 }
 
-export default userContainer(Login)
 
 const styles = StyleSheet.create({
   container: {
@@ -89,3 +86,5 @@ const styles = StyleSheet.create({
     color: '#FFF'
   }
 });
+
+export default userContainer(Login);

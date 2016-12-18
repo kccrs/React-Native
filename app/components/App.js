@@ -13,36 +13,9 @@ import Profile from './Profile';
 
 
 const routes = [
-  { component: Login, title: 'Login to get your recycle on'},
+  { component: Login, title: 'Login to find fuel stations'},
   { component: Profile, title: 'Profile' }
 ];
-
-export default class App extends Component {
-  constructor(props){
-    super(props);
-  }
-
-  render() {
-    // const {}
-      return (
-        <Navigator style={styles.navigator}
-          initialRoute={routes[0]}
-          initialRouteStack={routes}
-          renderScene={(route, navigator) => {
-            let RouteComponent = route.component;
-            return (
-              <RouteComponent {...route} navigator={navigator} />
-            )
-          }}
-          navigationBar={
-             <Navigator.NavigationBar
-               style={ styles.nav }
-               routeMapper={NavigationBarRouteMapper} />
-             }
-        />
-    );
-  }
-}
 
 var NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
@@ -71,6 +44,36 @@ var NavigationBarRouteMapper = {
     return <Text style={ styles.navTitle }>Re:fuel</Text>
   }
 };
+
+
+
+
+export default class App extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  render() {
+    // const {}
+      return (
+        <Navigator style={styles.navigator}
+          initialRoute={routes[0]}
+          initialRouteStack={routes}
+          renderScene={(route, navigator) => {
+            let RouteComponent = route.component;
+            return (
+              <RouteComponent {...route} navigator={navigator} />
+            )
+          }}
+          navigationBar={
+             <Navigator.NavigationBar
+               style={ styles.nav }
+               routeMapper={NavigationBarRouteMapper} />
+             }
+        />
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   navigator: {
