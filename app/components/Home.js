@@ -15,7 +15,7 @@ import {
 
 import userContainer from '../containers/userContainer';
 
-class Profile extends Component{
+class Home extends Component{
   constructor (props) {
    super(props);
    this.state = {

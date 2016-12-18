@@ -94,7 +94,7 @@ class Profile extends Component{
               <Picker.Item label="Oklahoma" value="oklahoma" />
               <Picker.Item label="Oregon" value="oregon" />
               <Picker.Item label="Pennsylvania" value="pennsylvania" />
-              <Picker.Item label="Rhode Island" value="rhod-island" />
+              <Picker.Item label="Rhode Island" value="rhode-island" />
               <Picker.Item label="South Carolina" value="south-carolina" />
               <Picker.Item label="South Dakota" value="south-dakota" />
               <Picker.Item label="Tennessee" value="tennessee" />
@@ -105,7 +105,7 @@ class Profile extends Component{
               <Picker.Item label="Washington" value="washington" />
               <Picker.Item label="West Virginia" value="west-virginia" />
               <Picker.Item label="Wisconsin" value="wisconsin" />
-              <Picker.Item label="Wyoming" value="Wyoming" />
+              <Picker.Item label="Wyoming" value="wyoming" />
             </Picker>
             <TouchableHighlight
               style={styles.stateButton}
