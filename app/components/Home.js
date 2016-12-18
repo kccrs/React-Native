@@ -14,27 +14,17 @@ import {
   Animated,
   Button
 } from 'react-native';
-import MapView from './MapView';
 
 import userContainer from '../containers/userContainer';
-
-const routes = [
-  // { component: Profile, title: 'Profile' },
-  { component: MapView, title: 'MapView' }
-];
+//
+import Login from './Login';
+import MapView from './MapView';
+import Profile from './Profile';
+import routes from './routes';
 
 class Home extends Component{
   constructor (props) {
    super(props);
- }
-
- navigatorRenderScene(route, navigator) {
-   switch ('MapView') {
-    //  case 'Profile':
-    //   return (<Profile navigator={navigator} title='profile' />);
-     case 'MapView':
-      return (<MapView navigator={navigator} title='mapview' />);
-   }
  }
 
  render() {
@@ -47,8 +37,8 @@ class Home extends Component{
          </Text>
          <Button
           color='blue'
-          onPress={this.navigatorRenderScene.bind(this)}
-          title='Go to Map'
+          onPress={() => this.props.navigator.jumpTo(routes[3])}
+          title='Go to Profile'
           />
        </View>
      )

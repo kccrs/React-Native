@@ -11,14 +11,15 @@ import {
 import Login from './Login';
 import Home from './Home';
 import MapView from './MapView';
+import Profile from './Profile';
+import routes from './routes';
 
-
-const routes = [
-  { component: Login, title: 'Login'},
-  { component: Home, title: 'Home' },
-  { component: MapView, title: 'Map' },
-  { component}
-];
+// const routes = [
+//   { component: Login, title: 'Login'},
+//   { component: Home, title: 'Home' },
+//   { component: MapView, title: 'Map' },
+//   { component: Profile, title: 'Profile' }
+// ]
 
 export default class App extends Component {
   constructor(props){
@@ -34,7 +35,7 @@ export default class App extends Component {
           renderScene={(route, navigator) => {
             let RouteComponent = route.component;
             return (
-              <RouteComponent {...route} navigator={navigator} />
+              <RouteComponent navigator={navigator} />
             )
           }}
           navigationBar={
