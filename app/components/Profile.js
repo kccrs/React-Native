@@ -28,12 +28,6 @@ class Profile extends Component{
     };
   }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
   _routeToStats() {
     this.props.navigator.push({
       component: Stats,
