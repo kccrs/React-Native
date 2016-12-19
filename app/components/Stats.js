@@ -7,6 +7,8 @@ import {
   Image,
   TouchableHighlight,
   Alert,
+  Button,
+  Navigator,
   TextInput,
   ScrollView,
   Switch,
@@ -24,15 +26,17 @@ class Stats extends Component{
    };
  }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
+  _routeBack() {
+    this.props.navigator.pop();
   }
 
   render() {
     return(
       <View style={styles.container}>
+        <Button
+          onPress={this._routeBack.bind(this)}
+          title="← Go Back"
+          / >
         <Text style={styles.chart}>
           State Chart goes here!
         </Text>
@@ -57,7 +61,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginTop: 50,
     height: 200,
-  }
+  },
 });
 
-export default userContainer(Stats)
+export default userContainer(Stats);
