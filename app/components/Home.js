@@ -44,6 +44,7 @@ class Home extends Component{
            <TabBarIOS selectedTab={this.state.selectedTab}>
              <TabBarIOS.Item
                title={'settings'}
+               icon={require('./SettingsIcon.png')}
                selected={this.state.selectedTab === 'Settings'}
                onPress={() => {
                    this.setState({
@@ -54,6 +55,7 @@ class Home extends Component{
              </TabBarIOS.Item>
              <TabBarIOS.Item
                title={'profile'}
+               icon={require('./ProfileIcon.png')}
                selected={this.state.selectedTab === 'Profile'}
                onPress={() => {
                    this.setState({
@@ -64,6 +66,7 @@ class Home extends Component{
              </TabBarIOS.Item>
              <TabBarIOS.Item
                title={'Mapview'}
+               icon={require('./MapIcon.png')}
                selected={this.state.selectedTab === 'MapView'}
                onPress={() => {
                      this.setState({
@@ -74,6 +77,7 @@ class Home extends Component{
              </TabBarIOS.Item>
              <TabBarIOS.Item
                title={'list view'}
+               icon={require('./ListIcon.png')}
                selected={this.state.selectedTab === 'List'}
                onPress={() => {
                    this.setState({

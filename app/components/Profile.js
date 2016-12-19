@@ -29,7 +29,6 @@ class Profile extends Component{
   }
 
   componentDidMount() {
-    console.log(this.props.navigator)
   }
 
   componentWillUnmount() {
