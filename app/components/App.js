@@ -15,12 +15,50 @@ import MapView from './MapView';
 import Profile from './Profile';
 import routes from './routes';
 
+
 // const routes = [
 //   { component: Login, title: 'Login'},
 //   { component: Home, title: 'Home' },
 //   { component: MapView, title: 'Map' },
 //   { component: Profile, title: 'Profile' }
-// ]
+
+
+const routes = [
+  { component: Login, title: 'Login to find fuel stations'},
+  { component: Profile, title: 'Profile' }
+];
+
+
+var NavigationBarRouteMapper = {
+  LeftButton(route, navigator, index, navState) {
+    if(index > 0) {
+      return (
+        <TouchableHighlight onPress={() => navigator.pop()}>
+          <Text style={styles.prevButton}>Back</Text>
+        </TouchableHighlight>
+      )
+    }
+    else { return null }
+  },
+
+  RightButton(route, navigator, index, navState) {
+    if(index > 0) {
+      return (
+        <TouchableHighlight onPress={() => navigator.push(routes[index + 1])}>
+          <Text style={styles.nextButton}>Next</Text>
+        </TouchableHighlight>
+      )
+    }
+    else { return null }
+  },
+
+  Title(route, navigator, index, navState) {
+    return <Text style={ styles.navTitle }>Re:fuel</Text>
+  }
+};
+
+
+
 
 export default class App extends Component {
   constructor(props){
@@ -146,3 +184,4 @@ export default class App extends Component {
 //     backgroundColor: '#1E77E2',
 //   }
 // });
+  

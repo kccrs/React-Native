@@ -27,6 +27,7 @@ class Home extends Component{
    super(props);
  }
 
+
  render() {
    const { user } = this.props;
    if (user) {
