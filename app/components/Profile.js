@@ -8,6 +8,7 @@ import {
   Image,
   Picker,
   TouchableHighlight,
+  Navitagor,
   Alert,
   TextInput,
   ScrollView,
@@ -28,6 +29,7 @@ class Profile extends Component{
   }
 
   componentDidMount() {
+    console.log(this.props.navigator)
   }
 
   componentWillUnmount() {

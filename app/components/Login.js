@@ -20,24 +20,6 @@ class Login extends Component {
    super(props);
  }
 
- _onLogin() {
-   const { getUser } = this.props;
-
-   lock.show({
-   }, (err, profile, token) => {
-     if (err) {
-       console.log(err);
-       return;
-     }
-     getUser(profile);
-     this.props.navigator.push({
-       component: Profile,
-       title: 'Your Profile',
-       token: token
-     });
-   });
- }
-
   render() {
     return (
       <View style={styles.container}>
