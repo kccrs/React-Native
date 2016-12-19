@@ -56,10 +56,12 @@ export default class App extends Component {
     super(props);
   }
 
+// TODO: Change initialRoute back to index 0 for production
+
   render() {
     return (
       <Navigator style={styles.navigator}
-        initialRoute={routes[0]}
+        initialRoute={routes[1]}
         initialRouteStack={routes}
         renderScene={(route, navigator) => {
           let RouteComponent = route.component;
