@@ -28,6 +28,7 @@ class Profile extends Component{
    if(user) {
      return (
        <View style={styles.container}>
+        <Text>PROFILE</Text>
          <Text style={styles.title}>{user.name}</Text>
          <Text style={styles.info}>{user.email}</Text>
          <Image style={styles.avatar} source={{uri: user.picture}} />

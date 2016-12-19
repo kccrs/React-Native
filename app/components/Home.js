@@ -20,7 +20,7 @@ import userContainer from '../containers/userContainer';
 import Login from './Login';
 import MapView from './MapView';
 import Profile from './Profile';
-import routes from './routes';
+// import routes from './routes';
 
 class Home extends Component{
   constructor (props) {
@@ -37,7 +37,7 @@ class Home extends Component{
          </Text>
          <Button
           color='blue'
-          onPress={() => this.props.navigator.jumpTo(routes[3])}
+          // onPress={() => this.props.navigator.jumpTo(routes[3])}
           title='Go to Profile'
           />
        </View>
