@@ -8,70 +8,101 @@ import {
   TouchableHighlight,
   Alert,
   TextInput,
+  TabBarIOS,
+  Navigator,
   ScrollView,
   Switch,
-  Animated
+  Animated,
+  Button
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
+//
+import Login from './Login';
+import MapView from './MapView';
+import Profile from './Profile';
+import Settings from './Settings';
+import List from './List';
+// import routes from './routes';
 
 class Home extends Component{
   constructor (props) {
    super(props);
    this.state = {
-     initialPosition: 'unknown',
-     lastPosition: 'unknown',
-   };
+     selectedTab: 'Settings'
+   }
  }
 
- componentDidMount() {
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      var initialPosition = JSON.stringify(position);
-      this.setState({initialPosition});
-    },
-    (error) => alert(JSON.stringify(error)),
-    {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-  );
-  this.watchID = navigator.geolocation.watchPosition((position) => {
-    var lastPosition = JSON.stringify(position);
-    this.setState({lastPosition});
-  });
-}
-
-componentWillUnmount() {
-  navigator.geolocation.clearWatch(this.watchID);
-}
+ componentDidMount(){
+   console.log(this.props, this.props.navigator)
+ }
 
  render() {
    const { user } = this.props;
    if (user) {
      return (
-       <View>
-         <Text style={styles.title}>
-          Hello!  Your location is: {this.state.lastPosition}
-         </Text>
-       </View>
+           <TabBarIOS selectedTab={this.state.selectedTab}>
+             <TabBarIOS.Item
+               title={'settings'}
+               selected={this.state.selectedTab === 'Settings'}
+               onPress={() => {
+                   this.setState({
+                       selectedTab: 'Settings',
+                   });
+               }}>
+                <Settings/>
+             </TabBarIOS.Item>
+             <TabBarIOS.Item
+               title={'profile'}
+               selected={this.state.selectedTab === 'Profile'}
+               onPress={() => {
+                   this.setState({
+                       selectedTab: 'Profile',
+                   });
+               }}>
+                 <Profile navigator={this.props.navigator}/>
+             </TabBarIOS.Item>
+             <TabBarIOS.Item
+               title={'Mapview'}
+               selected={this.state.selectedTab === 'MapView'}
+               onPress={() => {
+                     this.setState({
+                         selectedTab: 'MapView',
+                     });
+               }}>
+               <MapView/>
+             </TabBarIOS.Item>
+             <TabBarIOS.Item
+               title={'list view'}
+               selected={this.state.selectedTab === 'List'}
+               onPress={() => {
+                   this.setState({
+                       selectedTab: 'List',
+                   });
+               }}>
+                <List/>
+             </TabBarIOS.Item>
+           </TabBarIOS>
      )
    }
   return (null)
  }
 }
 
-export default userContainer(Profile)
+export default userContainer(Home)
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 200,
-  },
-  title: {
-    fontSize: 42,
-    margin: 40,
-    fontWeight: '300',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     flexDirection: 'column',
+//     backgroundColor: '#fff',
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//     paddingTop: 200,
+//   },
+//   title: {
+//     fontSize: 42,
+//     margin: 40,
+//     fontWeight: '300',
+//   },
+// });

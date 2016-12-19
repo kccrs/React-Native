@@ -11,31 +11,13 @@ import {
 
 import userContainer from '../containers/userContainer';
 import { Auth0creds } from '../../Auth0-credentials';
-import Profile from './Profile';
+import Home from './Home';
 
 var lock = new Auth0Lock(Auth0creds);
 
 class Login extends Component {
   constructor (props) {
    super(props);
- }
-
- _onLogin() {
-   const { getUser } = this.props;
-
-   lock.show({
-   }, (err, profile, token) => {
-     if (err) {
-       console.log(err);
-       return;
-     }
-     getUser(profile);
-     this.props.navigator.push({
-       component: Profile,
-       title: 'Your Profile',
-       token: token
-     });
-   });
  }
 
   render() {
@@ -52,6 +34,24 @@ class Login extends Component {
         </TouchableHighlight>
       </View>
     );
+  }
+
+  _onLogin() {
+    const { getUser } = this.props;
+
+    lock.show({
+      }, (err, profile, token) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        getUser(profile)
+        this.props.navigator.push({
+          component: Home,
+          title: 'Home',
+          token: token
+        })
+    })
   }
 }
 

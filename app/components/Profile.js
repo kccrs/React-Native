@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
+  Linking,
   StyleSheet,
   Text,
   View,
   Image,
   Picker,
   TouchableHighlight,
+  Navitagor,
   Alert,
   TextInput,
   ScrollView,
   Switch,
   Animated
-} from 'react-native';
+} from 'react-native'
+
 
 import userContainer from '../containers/userContainer';
 import Stats from './Stats';
@@ -26,6 +29,7 @@ class Profile extends Component{
   }
 
   componentDidMount() {
+    console.log(this.props.navigator)
   }
 
   componentWillUnmount() {
