@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-  Alert,
   Button,
   Navigator,
-  TextInput,
-  ScrollView,
-  Switch,
-  Animated
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
-import _ from 'lodash';
 
 import fuelStatsContainer from '../containers/fuelStatsContainer';
 
@@ -23,14 +16,6 @@ class Stats extends Component{
    super(props);
  }
 
-  componentDidMount(){
-    console.log(this.props)
-  }
-
-  componentDidUpdate(){
-    console.log(this.props)
-  }
-
   _routeBack() {
     this.props.navigator.pop();
   }
@@ -38,7 +23,7 @@ class Stats extends Component{
   transformData(obj){
     let arr = []
     for(let thing in obj){
-      let subobj = obj[thing]
+      let subobj = obj[thing];
       let value = subobj['total'];
       arr.push(`${thing}: ${value}`);
     }
@@ -51,7 +36,7 @@ class Stats extends Component{
         <Button
           onPress={this._routeBack.bind(this)}
           title="← Go Back"
-          / >
+        />
         <Text style={styles.chart}>
           National Chart goes here!
         </Text>
@@ -70,7 +55,6 @@ class Stats extends Component{
     )
   }
 }
-//
 
 const styles = StyleSheet.create({
   container: {
