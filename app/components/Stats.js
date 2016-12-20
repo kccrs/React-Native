@@ -64,6 +64,16 @@ class Stats extends Component {
           x="fueltype"
           y="count"
           /> }
+          <Text style={styles.list}>
+            Fuel Types:
+            BD:	Biodiesel (B20 and above)
+            CNG: Compressed Natural Gas
+            E85:	Ethanol (E85)
+            ELEC:	Electric
+            HY:	Hydrogen
+            LNG:	Liquefied Natural Gas
+            LPG:	Liquefied Petroleum Gas (Propane)
+          </Text>
           <Text style={styles.chart}>
             Your state&apos;s distribution of alternative fuels:
           </Text>
@@ -81,6 +91,16 @@ class Stats extends Component {
             x="fueltype"
             y="count"
             /> }
+            <Text style={styles.list}>
+              Fuel Types:
+              BD:	Biodiesel (B20 and above)
+              CNG: Compressed Natural Gas
+              E85:	Ethanol (E85)
+              ELEC:	Electric
+              HY:	Hydrogen
+              LNG:	Liquefied Natural Gas
+              LPG:	Liquefied Petroleum Gas (Propane)
+            </Text>
           </ScrollView>
         )
       }
