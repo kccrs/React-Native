@@ -9,7 +9,6 @@ import {
   Text,
   View
 } from 'react-native';
-import { VictoryBar } from "victory-native";
 
 import foundStationsContainer from '../containers/foundStationsContainer';
 
@@ -17,6 +16,14 @@ import Login from './Login';
 import MapView from './MapView';
 import Profile from './Profile';
 import { NREL_API_KEY } from '../../Auth0-credentials';
+import Chart from 'react-native-chart';
+
+const data = [
+    [0, 1],
+    [1, 3],
+    [3, 7],
+    [4, 9],
+];
 
 class List extends Component {
   constructor (props) {
@@ -30,7 +37,12 @@ class List extends Component {
   render() {
     return (
       <ScrollView>
-        <VictoryBar/>
+      <Chart
+          style={styles.chart}
+          data={data}
+          verticalGridStep={5}
+          type="line"
+       />
         <View>
           <Button
             style={styles.button}
@@ -73,6 +85,10 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20
+  },
+  chart: {
+    width: 200,
+    height: 200,
   },
   listItem: {
     margin: 5,
