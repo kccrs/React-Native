@@ -1,16 +1,15 @@
 import * as types from '../actions/actionTypes';
-// import Immutable from 'immutable'
 
-const initialState = []
+const initialState = [];
 
 const stateCounts = (state = initialState, action) => {
-  const { type, data } = action
+  const { type, data } = action;
 
   switch (type) {
     case 'GET_STATE':
-      return data
+      return data;
   }
-  return state
-}
+  return state;
+};
 
-export default stateCounts
+export default stateCounts;
