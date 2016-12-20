@@ -72,16 +72,10 @@ class Stats extends Component{
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
     alignItems: 'center',
-    paddingTop: 50
   },
   chart: {
     fontSize: 30,
-    marginTop: 50,
-    height: 200,
   },
 });
 
