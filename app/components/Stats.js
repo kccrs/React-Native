@@ -34,7 +34,35 @@ class Stats extends Component{
       let value = subobj['total'];
       arr.push(`${thing}: ${value}`);
     }
+    console.log(arr);
     return arr;
+  }
+
+  renderChartData() {
+    let chartData = this.transformData(this.props.nationalCounts).toString();
+    var properties = chartData.split(',');
+    var obj = {};
+    properties.forEach(function(property) {
+    var tup = property.split(': ');
+    obj[tup[0]] = parseInt(tup[1]);
+    console.log(Object.values(obj));
+    console.log(obj);
+});
+    // if (this.props.nationalCounts) {
+    //   let stuffyThings = JSON.parse(chartData, (key, value) => {
+    //     console.log(key);
+    //     console.log(value);
+    //     return value;
+    //   });
+    //   console.log(stuffyThings);
+
+    // }
+  //   const data = [
+  //   {fuel: 1, total: 13000},
+  //   {fuel: 2, total: 16500},
+  //   {fuel: 3, total: 14250},
+  //   {fuel: 4, total: 19000}
+  // ];
   }
 
   render() {
@@ -46,6 +74,7 @@ class Stats extends Component{
         />
         <Text style={styles.chart}>
           National Chart goes here!
+          {this.renderChartData()}
         </Text>
         { Array.isArray(this.props.nationalCounts) ?
             <View>
