@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import {
   Button,
   Navigator,
@@ -13,17 +12,17 @@ import {
 
 import fuelStatsContainer from '../containers/fuelStatsContainer';
 
-class Stats extends Component{
+class Stats extends Component {
   constructor (props) {
-   super(props);
- }
+    super(props);
+  }
 
   _routeBack() {
     this.props.navigator.pop();
   }
 
   transformData(obj){
-    let arr = []
+    let arr = [];
     for(let thing in obj){
       let subobj = obj[thing];
       let value = subobj['total'];
@@ -38,20 +37,20 @@ class Stats extends Component{
         <Button
           onPress={this._routeBack.bind(this)}
           title="← Go Back"
-        />
+          />
         <Text style={styles.chart}>
           National Chart goes here!
         </Text>
         { Array.isArray(this.props.nationalCounts) ?
-            <View>
-              <Text>Loading data...</Text>
-              <ActivityIndicator
-                style={styles.centering}
-                size="large"
-                />
-            </View>
-            :  this.transformData(this.props.nationalCounts).map(str => <Text key={Math.random()}>{str}</Text>)
-          }
+          <View>
+            <Text>Loading data...</Text>
+            <ActivityIndicator
+              style={styles.centering}
+              size="large"
+              />
+          </View>
+          :  this.transformData(this.props.nationalCounts).map(str => <Text key={Math.random()}>{str}</Text>)
+        }
         <Text style={styles.chart}>
           State Chart goes here!
         </Text>
@@ -63,8 +62,8 @@ class Stats extends Component{
               size="large"
               />
           </View>
-            :  this.transformData(this.props.stateCounts).map(str => <Text key={Math.random()}>{str}</Text>)
-          }
+          :  this.transformData(this.props.stateCounts).map(str => <Text key={Math.random()}>{str}</Text>)
+        }
       </ScrollView>
     )
   }

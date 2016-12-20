@@ -184,6 +184,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default userContainer(
-                fuelStatsContainer(Profile)
-              );
+export default userContainer(fuelStatsContainer(Profile));
+                

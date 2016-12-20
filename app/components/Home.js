@@ -30,31 +30,31 @@ class Home extends Component{
            icon={require('../images/SettingsIcon.png')}
            selected={this.state.selectedTab === 'Settings'}
            onPress={() => {
-               this.setState({
-                   selectedTab: 'Settings',
-               });
+             this.setState({
+               selectedTab: 'Settings',
+             });
            }}>
-            <Settings navigator={this.props.navigator}/>
+           <Settings navigator={this.props.navigator}/>
          </TabBarIOS.Item>
          <TabBarIOS.Item
            title={'Profile'}
            icon={require('../images/ProfileIcon.png')}
            selected={this.state.selectedTab === 'Profile'}
            onPress={() => {
-               this.setState({
-                   selectedTab: 'Profile',
-               });
+             this.setState({
+               selectedTab: 'Profile',
+             });
            }}>
-             <Profile navigator={this.props.navigator}/>
+           <Profile navigator={this.props.navigator}/>
          </TabBarIOS.Item>
          <TabBarIOS.Item
            title={'Map View'}
            icon={require('../images/MapIcon.png')}
            selected={this.state.selectedTab === 'MapView'}
            onPress={() => {
-                 this.setState({
-                     selectedTab: 'MapView',
-                 });
+             this.setState({
+               selectedTab: 'MapView',
+             });
            }}>
            <MapView />
          </TabBarIOS.Item>
@@ -63,16 +63,16 @@ class Home extends Component{
            icon={require('../images/ListIcon.png')}
            selected={this.state.selectedTab === 'List'}
            onPress={() => {
-               this.setState({
-                   selectedTab: 'List',
-               });
+             this.setState({
+               selectedTab: 'List',
+             });
            }}>
-            <List />
+           <List />
          </TabBarIOS.Item>
        </TabBarIOS>
      )
    }
-  return (null)
+   return (null);
  }
 }
 
