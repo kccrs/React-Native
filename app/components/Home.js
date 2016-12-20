@@ -51,7 +51,7 @@ class Home extends Component{
                        selectedTab: 'Settings',
                    });
                }}>
-                <Settings/>
+                <Settings navigator={this.props.navigator}/>
              </TabBarIOS.Item>
              <TabBarIOS.Item
                title={'Profile'}

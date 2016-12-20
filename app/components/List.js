@@ -18,30 +18,23 @@ import {
   Button
 } from 'react-native';
 
-import userContainer from '../containers/userContainer';
-//
+import foundStationsContainer from '../containers/foundStationsContainer';
+
 import Login from './Login';
 import MapView from './MapView';
 import Profile from './Profile';
 import { NREL_API_KEY } from '../../Auth0-credentials';
 
-export default class Settings extends Component {
+class List extends Component {
   constructor (props) {
    super(props);
-   this.state = {
-     data: null
-   }
  }
-
-componentDidMount(){
-  fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}&fuel_type=ELEC&zip=80204`).then((response) => response.json()).then((responseJSON)=>{this.setState({data: responseJSON})});
-}
 
   render() {
     return (
       <ScrollView>
-        { this.state.data ?
-          this.state.data.fuel_stations.map(s => <Text style={styles.title} key={s.id}>{s.station_name}</Text>)
+        { this.props.stations.fuel_stations ?
+          this.props.stations.fuel_stations.map(s => <Text style={styles.title} key={s.id}>{s.station_name}</Text>)
         :  <ActivityIndicator
             style={styles.centering}
             size="large"
@@ -50,6 +43,8 @@ componentDidMount(){
     );
   }
 }
+
+export default foundStationsContainer(List)
 
 const styles = StyleSheet.create({
   container: {

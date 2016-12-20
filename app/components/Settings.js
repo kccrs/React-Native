@@ -20,18 +20,36 @@ import {
 import userContainer from '../containers/userContainer';
 //
 import Login from './Login';
+import List from './List';
 import MapView from './MapView';
 import Profile from './Profile';
 var PickerItemIOS = PickerIOS.Item;
 
+import { NREL_API_KEY } from '../../Auth0-credentials';
+import foundStationsContainer from '../containers/foundStationsContainer';
 
-export default class Settings extends Component {
+class Settings extends Component {
   constructor (props) {
    super(props);
    this.state = {
      fuel: 'ELEC',
-     includePrivate: false
+     includePrivate: false,
+     zip: ''
    }
+ }
+
+ _routeToList(){
+   this.props.navigator.push({
+     component: List,
+     title: 'ListView'
+   });
+ }
+
+ _findStations(){
+    fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}&fuel_type=${this.state.fuel}&zip=${this.state.zip}`)
+    .then(response => response.json())
+    .then(responseJSON => this.props.getStations(responseJSON))
+    .catch(error => console.error(error));
  }
 
   render() {
@@ -71,17 +89,28 @@ export default class Settings extends Component {
             value="LPG"
           />
         </PickerIOS>
-        {this.state.fuel==='ELEC' ?
-          <View>
-          <Switch
-            onValueChange={(value) => this.setState({includePrivate: !this.state.includePrivate})}
-            style={{marginBottom: 10}}
-            value={this.state.includePrivate} />
-          </View> : null}
+        <Text style={styles.title}>Enter Zip</Text>
+        <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          keyboardType={'numeric'}
+          maxLength={5}
+          placeholder={'enter zip'}
+          returnKeyType={'done'}
+          onChangeText={(text) => this.setState({zip: text})}
+          value={this.state.zip.toString()}
+        />
+        <TouchableHighlight
+          style={styles.stateButton}
+          underlayColor='#757575'
+          onPress={this._findStations.bind(this)}>
+          <Text style={styles.stateButtonText}>Find stations!</Text>
+        </TouchableHighlight>
       </View>
     );
   }
 }
+
+export default foundStationsContainer(Settings)
 
 const styles = StyleSheet.create({
   container: {
@@ -93,7 +122,7 @@ const styles = StyleSheet.create({
     paddingTop: 200,
   },
   title: {
-    fontSize: 42,
+    fontSize: 38,
     margin: 40,
     fontWeight: '300',
   },
