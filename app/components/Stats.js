@@ -6,7 +6,9 @@ import {
   Navigator,
   StyleSheet,
   Text,
-  View
+  ScrollView,
+  View,
+  ActivityIndicator
 } from 'react-native';
 
 import fuelStatsContainer from '../containers/fuelStatsContainer';
@@ -16,19 +18,12 @@ class Stats extends Component{
    super(props);
  }
 
-  componentDidMount(){
-  }
-
-  componentDidUpdate(){
-  }
-
   _routeBack() {
     this.props.navigator.pop();
   }
 
-  transformData(){
-    let obj = this.props.nationalCounts;
-    let arr = [];
+  transformData(obj){
+    let arr = []
     for(let thing in obj){
       let subobj = obj[thing];
       let value = subobj['total'];
@@ -39,22 +34,38 @@ class Stats extends Component{
 
   render() {
     return(
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <Button
           onPress={this._routeBack.bind(this)}
           title="← Go Back"
         />
         <Text style={styles.chart}>
-          State Chart goes here!
-        </Text>
-        { Array.isArray(this.props.nationalCounts) ?
-            <Text>no data</Text>
-            :  this.transformData().map(str => <Text>{str}</Text>)
-          }
-        <Text style={styles.chart}>
           National Chart goes here!
         </Text>
-      </View>
+        { Array.isArray(this.props.nationalCounts) ?
+            <View>
+              <Text>Loading data...</Text>
+              <ActivityIndicator
+                style={styles.centering}
+                size="large"
+                />
+            </View>
+            :  this.transformData(this.props.nationalCounts).map(str => <Text key={Math.random()}>{str}</Text>)
+          }
+        <Text style={styles.chart}>
+          State Chart goes here!
+        </Text>
+        { Array.isArray(this.props.stateCounts) ?
+          <View>
+            <Text>Loading data...</Text>
+            <ActivityIndicator
+              style={styles.centering}
+              size="large"
+              />
+          </View>
+            :  this.transformData(this.props.stateCounts).map(str => <Text key={Math.random()}>{str}</Text>)
+          }
+      </ScrollView>
     )
   }
 }
@@ -64,7 +75,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fff',
-    justifyContent: 'flex-start',
     alignItems: 'center',
     paddingTop: 50
   },
