@@ -6,7 +6,8 @@ import {
   Picker,
   StyleSheet,
   Text,
-  TouchableHighlight
+  TouchableHighlight,
+  View
 } from 'react-native';
 
 import { NREL_API_KEY } from '../../Auth0-credentials';

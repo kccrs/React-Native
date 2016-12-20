@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { VictoryBar } from "victory-native";
 import _ from 'lodash';
 import {
   Button,
   Navigator,
+  ScrollView,
   StyleSheet,
   Text,
   View
@@ -16,12 +18,9 @@ class Stats extends Component{
    super(props);
  }
 
-  componentDidMount(){
+  componentDidMount() {
+    console.log(this.props.nationalCounts);
   }
-
-  componentDidUpdate(){
-  }
-
   _routeBack() {
     this.props.navigator.pop();
   }
@@ -39,7 +38,7 @@ class Stats extends Component{
 
   render() {
     return(
-      <View style={styles.container}>
+      <ScrollView>
         <Button
           onPress={this._routeBack.bind(this)}
           title="← Go Back"
@@ -51,10 +50,14 @@ class Stats extends Component{
             <Text>no data</Text>
             :  this.transformData().map(str => <Text>{str}</Text>)
           }
-        <Text style={styles.chart}>
-          National Chart goes here!
-        </Text>
-      </View>
+          <Text style={styles.text}>{"Victory Tutorial"}</Text>
+          <VictoryBar
+            style={{
+              data: {fill: "blue"}
+            }}
+
+          />
+      </ScrollView>
     )
   }
 }
