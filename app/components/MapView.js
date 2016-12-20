@@ -33,15 +33,6 @@ class Maps extends Component {
       var lastPosition = position;
       this.setState({lastPosition});
     });
-    if(this.props.stations.fuel_stations){
-        this._buildAnnotations();
-      }
-  }
-
-  componentWillUpdate(nextProps){
-    if(this.props.stations.fuel_stations && nextProps !== this.props){
-        this._buildAnnotations();
-      }
   }
 
   componentWillUnmount() {
@@ -59,7 +50,7 @@ class Maps extends Component {
       return (
         <View>
           <Text style={styles.title}>
-            Hello!  Your location is:
+            Stations near you:
           </Text>
           { this.state.initialPosition.coords ?
             <MapView
@@ -87,8 +78,8 @@ class Maps extends Component {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 42,
-    margin: 40,
+    fontSize: 24,
+    margin: 15,
     fontWeight: '300',
   },
 });
