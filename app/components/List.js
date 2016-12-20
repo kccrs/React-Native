@@ -6,6 +6,7 @@ import {
   View,
   Image,
   TouchableHighlight,
+  ActivityIndicator,
   Alert,
   TextInput,
   ListView,
@@ -39,7 +40,11 @@ componentDidMount(){
     return (
       <ScrollView>
         { this.state.data ?
-        this.state.data.fuel_stations.map(s => <Text style={styles.title}>{s.station_name}</Text>) : <Text>loading...</Text>}
+          this.state.data.fuel_stations.map(s => <Text style={styles.title} key={s.id}>{s.station_name}</Text>)  
+        :  <ActivityIndicator
+            style={styles.centering}
+            size="large"
+          /> }
       </ScrollView>
     );
   }
@@ -53,6 +58,12 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingTop: 200,
+  },
+  centering: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+    marginTop: 100
   },
   title: {
     fontSize: 42,
