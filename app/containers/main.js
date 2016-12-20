@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { createStore, combineReducers } from 'redux';
+import React, { Component } from 'react';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from '../reducers/index';
 

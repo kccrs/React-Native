@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
+  Navigator,
+  PickerIOS,
   StyleSheet,
   Text,
-  View,
-  Image,
-  TouchableHighlight,
-  Alert,
   TextInput,
-  TabBarIOS,
-  Navigator,
-  ScrollView,
-  Switch,
-  Animated,
-  Button,
-  PickerIOS
+  TouchableHighlight,
+  View,
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
-//
 import Login from './Login';
 import List from './List';
 import MapView from './MapView';
 import Profile from './Profile';
-var PickerItemIOS = PickerIOS.Item;
+let Item = PickerIOS.Item;
 
 import { NREL_API_KEY } from '../../Auth0-credentials';
 import foundStationsContainer from '../containers/foundStationsContainer';
@@ -35,7 +27,7 @@ class Settings extends Component {
      fuel: 'ELEC',
      includePrivate: false,
      zip: ''
-   }
+   };
  }
 
  _routeToList(){
@@ -55,63 +47,61 @@ class Settings extends Component {
 
   render() {
     return (
-      <View >
+      <View style={styles.container}>
         <Text style={styles.title}>Select Fuel Type</Text>
         <PickerIOS
           style={styles.picker}
           selectedValue={this.state.fuel}
           onValueChange={(choice) => this.setState({fuel: choice})}>
-          <PickerItemIOS
+            <Item
             label='Electricity'
             value="ELEC"
           />
-          <PickerItemIOS
+          <Item
             label='Biodiesel'
             value="BD"
           />
-          <PickerItemIOS
+          <Item
             label='Hydrogen'
             value="HY"
           />
-          <PickerItemIOS
+          <Item
             label='E85'
             value="E85"
           />
-          <PickerItemIOS
+          <Item
             label='Compressed Natural Gas'
             value="CNG"
           />
-          <PickerItemIOS
+          <Item
             label='Liquid Natural Gas'
             value="LNG"
           />
-          <PickerItemIOS
+          <Item
             label='Liquid Propane Gas'
             value="LPG"
           />
         </PickerIOS>
-        <Text style={styles.title}>Enter Zip</Text>
+        <Text style={[styles.title, styles.zip]}>Enter Zip Code</Text>
         <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          style={styles.input}
           keyboardType={'numeric'}
           maxLength={5}
-          placeholder={'enter zip'}
+          placeholder={'Enter 5 digit zip code'}
           returnKeyType={'done'}
           onChangeText={(text) => this.setState({zip: text})}
           value={this.state.zip.toString()}
         />
         <TouchableHighlight
-          style={styles.stateButton}
+          style={styles.button}
           underlayColor='#757575'
           onPress={this._findStations.bind(this)}>
-          <Text style={styles.stateButtonText}>Find stations!</Text>
+          <Text style={styles.buttonText}>Find stations!</Text>
         </TouchableHighlight>
       </View>
     );
   }
 }
-
-export default foundStationsContainer(Settings)
 
 const styles = StyleSheet.create({
   container: {
@@ -120,11 +110,51 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingTop: 200,
+    paddingTop: 50
+  },
+  picker: {
+    borderTopColor: '#757575',
+    borderTopWidth: 1,
+    borderBottomColor: '#757575',
+    borderBottomWidth: 1,
+    borderStyle: 'solid',
+    width: 350
   },
   title: {
-    fontSize: 38,
-    margin: 40,
+    fontSize: 32,
+    margin: 30,
     fontWeight: '300',
   },
+  zip: {
+    fontSize: 24
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    paddingLeft: 20,
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+    alignItems: 'center'
+  },
+  button: {
+    height: 50,
+    alignSelf: 'stretch',
+    backgroundColor: '#757575',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 28,
+    color: '#FFF'
+  }
 });
+
+export default foundStationsContainer(Settings)
