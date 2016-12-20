@@ -17,14 +17,23 @@ import fuelStatsContainer from '../containers/fuelStatsContainer';
 class Stats extends Component{
   constructor (props) {
    super(props);
+   this.state = {
+     nationalKey: null,
+     nationalValue: null
+   };
  }
 
   componentDidMount() {
-    console.log(this.props.nationalCounts);
+    // console.log(this.props.nationalCounts);
   }
+
 
   _routeBack() {
     this.props.navigator.pop();
+  }
+
+  pullInTheThing() {
+    
   }
 
   transformData(obj){
@@ -39,15 +48,23 @@ class Stats extends Component{
   }
 
   renderChartData() {
+    console.log('props ' + this.props.nationalCounts);
     let chartData = this.transformData(this.props.nationalCounts).toString();
     var properties = chartData.split(',');
-    var obj = {};
+    // var obj = {};
+    var anotherThing = [];
     properties.forEach(function(property) {
-    var tup = property.split(': ');
-    obj[tup[0]] = parseInt(tup[1]);
-    console.log(Object.values(obj));
-    console.log(obj);
+      var tup = property.split(': ');
+      anotherThing.push(tup);
+      // obj[tup[0]] = parseInt(tup[1]);
+      console.log(anotherThing);
+      // this.setState({ nationalKey: 0, nationalValue: 1 });
+      return anotherThing;
+      // return obj;
 });
+    console.log('outside properties ' + properties);
+    console.log('outside AT ' + anotherThing);
+    console.log('outside props ' + this.props.nationalCounts);
     // if (this.props.nationalCounts) {
     //   let stuffyThings = JSON.parse(chartData, (key, value) => {
     //     console.log(key);
@@ -74,7 +91,6 @@ class Stats extends Component{
         />
         <Text style={styles.chart}>
           National Chart goes here!
-          {this.renderChartData()}
         </Text>
         { Array.isArray(this.props.nationalCounts) ?
             <View>
