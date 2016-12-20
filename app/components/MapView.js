@@ -15,8 +15,6 @@ import {
   Animated
 } from 'react-native';
 
-// import MapView from 'react-native-maps';
-
 import userContainer from '../containers/userContainer';
 
 class Maps extends Component{
@@ -57,6 +55,7 @@ componentWillUnmount() {
          </Text>
          { this.state.initialPosition.coords ?
            <MapView
+              showsUserLocation={true}
               style={{height: 600, margin: 0}}
               region={{
                 latitude: parseFloat(this.state.lastPosition.coords.latitude),

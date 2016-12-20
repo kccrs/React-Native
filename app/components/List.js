@@ -23,6 +23,7 @@ import userContainer from '../containers/userContainer';
 import Login from './Login';
 import MapView from './MapView';
 import Profile from './Profile';
+import { NREL_API_KEY } from '../../Auth0-credentials';
 
 export default class Settings extends Component {
   constructor (props) {
@@ -33,14 +34,14 @@ export default class Settings extends Component {
  }
 
 componentDidMount(){
-  fetch('https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=EhCEXrfKfuNMgGH7Vn9Y2ggCbTeBhGB83xlLH8Xp&fuel_type=ELEC&zip=80204').then((response) => response.json()).then((responseJSON)=>{this.setState({data: responseJSON})});
+  fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}&fuel_type=ELEC&zip=80204`).then((response) => response.json()).then((responseJSON)=>{this.setState({data: responseJSON})});
 }
 
   render() {
     return (
       <ScrollView>
         { this.state.data ?
-          this.state.data.fuel_stations.map(s => <Text style={styles.title} key={s.id}>{s.station_name}</Text>)  
+          this.state.data.fuel_stations.map(s => <Text style={styles.title} key={s.id}>{s.station_name}</Text>)
         :  <ActivityIndicator
             style={styles.centering}
             size="large"
