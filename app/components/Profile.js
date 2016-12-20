@@ -16,8 +16,9 @@ import {
   Animated
 } from 'react-native'
 
-
+import { NREL_API_KEY } from '../../Auth0-credentials';
 import userContainer from '../containers/userContainer';
+import fuelStatsContainer from '../containers/fuelStatsContainer';
 import Stats from './Stats';
 
 class Profile extends Component{
@@ -28,7 +29,14 @@ class Profile extends Component{
     };
   }
 
-  _routeToStats() {
+  _getStationStats(){
+    fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}`)
+    .then(response => response.json())
+    .then(responseJSON => this.props.getNationalStats(responseJSON.station_counts.fuels))
+    .then(this._routeToStats())
+  }
+
+  _routeToStats(){
     this.props.navigator.push({
       component: Stats,
       title: 'State Stats',
@@ -107,7 +115,7 @@ class Profile extends Component{
             <TouchableHighlight
               style={styles.stateButton}
               underlayColor='#757575'
-              onPress={this._routeToStats.bind(this)}>
+              onPress={this._getStationStats.bind(this)}>
               <Text style={styles.stateButtonText}>Check here</Text>
             </TouchableHighlight>
           </View>
@@ -169,4 +177,6 @@ const styles = StyleSheet.create({
   }
 });
 
-export default userContainer(Profile);
+export default userContainer(
+                fuelStatsContainer(Profile)
+              );
