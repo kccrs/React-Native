@@ -37,7 +37,16 @@ class List extends Component {
           />
         </View>
         { this.props.stations.fuel_stations ?
-          this.props.stations.fuel_stations.map(s => <Text style={styles.title} key={s.id}>{s.station_name}</Text>)
+          this.props.stations.fuel_stations.map((s) => {
+            return ( <View key={s.id} style={styles.listItem}>
+                      <Text style={styles.title}>{s.station_name}</Text>
+                      <Text>{s.station_phone}</Text>
+                      <Text>{s.access_days_time}</Text>
+                      <Text>{s.street_address}</Text>
+                      <Text>{s.intersection_directions}</Text>
+                    </View>
+              );
+            })
           : <ActivityIndicator
             style={styles.centering}
             size="large"
@@ -56,12 +65,19 @@ const styles = StyleSheet.create({
     marginTop: 100
   },
   title: {
-    fontSize: 42,
-    margin: 40,
-    fontWeight: '300',
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 5
   },
   button: {
     marginTop: 20
+  },
+  listItem: {
+    margin: 5,
+    padding: 5,
+    paddingBottom: 10,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1
   }
 });
 
