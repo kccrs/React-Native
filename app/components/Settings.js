@@ -132,21 +132,27 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    paddingLeft: 20,
     justifyContent: 'center',
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
+    alignItems: 'center'
   },
   button: {
     height: 50,
     alignSelf: 'stretch',
     backgroundColor: '#757575',
-    margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: 30,
+    fontSize: 28,
     color: '#FFF'
   }
 });

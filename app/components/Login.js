@@ -43,12 +43,14 @@ class Login extends Component {
         <View style={styles.messageBox}>
           <Text style={styles.title}>Re:fuel</Text>
         </View>
-        <TouchableHighlight
-          style={styles.signInButton}
-          underlayColor='#757575'
-          onPress={this._onLogin.bind(this)}>
-          <Text style={styles.buttonText}>Log In</Text>
-        </TouchableHighlight>
+        <View style={styles.messageBox}>
+          <TouchableHighlight
+            style={styles.signInButton}
+            underlayColor='#757575'
+            onPress={this._onLogin.bind(this)}>
+            <Text style={styles.buttonText}>Log In</Text>
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }
@@ -74,13 +76,14 @@ const styles = StyleSheet.create({
     height: 50,
     alignSelf: 'stretch',
     backgroundColor: '#757575',
-    margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: 30,
+    fontSize: 28,
     color: '#FFF'
   }
 });
