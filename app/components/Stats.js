@@ -21,11 +21,11 @@ class Stats extends Component {
 
   render() {
     return(
-      <Viewstyle={styles.container}>
+      <View style={styles.container}>
         <Button
           onPress={this._routeBack.bind(this)}
           title="← Go Back"
-          / >
+        />
         <Text style={styles.chart}>
           State Chart goes here!
         </Text>

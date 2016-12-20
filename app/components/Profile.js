@@ -41,7 +41,7 @@ class Profile extends Component{
           </Text>
           <Image style={styles.photo} source={{uri: user.picture}} />
           <Text style={styles.tagline}>What fuels your state?</Text>
-          <View style={styles.border}>
+          <View>
             <Picker
               style={styles.picker}
               selectedValue={this.state.stateChoice}
@@ -118,12 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingTop: 50,
-  },
-  border: {
-    borderColor: '#757575',
-    borderStyle: 'solid',
-    borderWidth: 1
+    paddingTop: 20,
   },
   name: {
     fontSize: 30,
@@ -132,7 +127,7 @@ const styles = StyleSheet.create({
   },
   email: {
     fontSize: 18,
-    margin: 10,
+    marginBottom: 10,
     fontWeight: '100',
   },
   photo: {
@@ -145,19 +140,26 @@ const styles = StyleSheet.create({
     margin: 10
   },
   picker: {
-    width: 300
+    borderTopColor: '#757575',
+    borderTopWidth: 1,
+    borderBottomColor: '#757575',
+    borderBottomWidth: 1,
+    borderStyle: 'solid',
+    width: 350
   },
   stateButton: {
     height: 50,
     alignSelf: 'stretch',
     backgroundColor: '#757575',
-    margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
   },
   stateButtonText: {
-    fontSize: 30,
+    fontSize: 28,
     color: '#FFF'
   }
 });
