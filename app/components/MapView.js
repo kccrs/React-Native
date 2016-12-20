@@ -9,13 +9,14 @@ import {
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
+import foundStationsContainer from '../containers/foundStationsContainer';
 
 class Maps extends Component {
   constructor (props) {
     super(props);
     this.state = {
       initialPosition: {},
-      lastPosition: null
+      lastPosition: null,
     };
   }
 
@@ -32,6 +33,15 @@ class Maps extends Component {
       var lastPosition = position;
       this.setState({lastPosition});
     });
+    if(this.props.stations.fuel_stations){
+        this._buildAnnotations();
+      }
+  }
+
+  componentWillUpdate(nextProps){
+    if(this.props.stations.fuel_stations && nextProps !== this.props){
+        this._buildAnnotations();
+      }
   }
 
   componentWillUnmount() {
@@ -40,6 +50,11 @@ class Maps extends Component {
 
   render() {
     const { user } = this.props;
+    const annotes = this.props.stations.fuel_stations ? this.props.stations.fuel_stations.map((s) => {
+                    return {latitude: s.latitude,
+                            longitude: s.longitude,
+                            animateDrop: true}
+                  }) : null;
     if (user) {
       return (
         <View>
@@ -48,6 +63,7 @@ class Maps extends Component {
           </Text>
           { this.state.initialPosition.coords ?
             <MapView
+              annotations={annotes}
               showsUserLocation={true}
               style={{height: 600, margin: 0}}
               region={{
@@ -77,4 +93,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default userContainer(Maps)
+export default userContainer(
+                foundStationsContainer(Maps)
+              )
