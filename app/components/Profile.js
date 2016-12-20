@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
-  Linking,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Picker,
-  TouchableHighlight,
-  Navitagor,
   Alert,
-  TextInput,
+  Animated,
+  Image,
+  Linking,
+  Navitagor,
+  Picker,
   ScrollView,
+  StyleSheet,
   Switch,
-  Animated
-} from 'react-native'
+  Text,
+  TextInput,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 
 
 import userContainer from '../containers/userContainer';
