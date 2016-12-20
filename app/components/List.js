@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
   ActivityIndicator,
-  Alert,
-  TextInput,
-  ListView,
-  TabBarIOS,
+  Button,
   Navigator,
   ScrollView,
-  Switch,
-  Animated,
-  Button
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
 
 import foundStationsContainer from '../containers/foundStationsContainer';
@@ -28,33 +20,37 @@ import { NREL_API_KEY } from '../../Auth0-credentials';
 class List extends Component {
   constructor (props) {
    super(props);
- }
+  }
+
+  _routeBack() {
+   this.props.navigator.pop();
+  }
 
   render() {
     return (
       <ScrollView>
+        <View>
+          <Button
+            style={styles.button}
+            onPress={this._routeBack.bind(this)}
+            title="← Go Back"
+          />
+        </View>
         { this.props.stations.fuel_stations ?
           this.props.stations.fuel_stations.map(s => <Text style={styles.title} key={s.id}>{s.station_name}</Text>)
-        :  <ActivityIndicator
+          : <ActivityIndicator
             style={styles.centering}
             size="large"
-          /> }
+            />
+        }
       </ScrollView>
     );
   }
 }
 
-export default foundStationsContainer(List)
+export default foundStationsContainer(List);
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 200,
-  },
   centering: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -66,4 +62,7 @@ const styles = StyleSheet.create({
     margin: 40,
     fontWeight: '300',
   },
+  button: {
+    marginTop: 20
+  }
 });
