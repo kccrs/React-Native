@@ -1,30 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-  Alert,
   Button,
   Navigator,
-  TextInput,
-  ScrollView,
-  Switch,
-  Animated
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
 
-
-class Stats extends Component{
+class Stats extends Component {
   constructor (props) {
-   super(props);
-   this.state = {
-
-   };
- }
+    super(props);
+  }
 
   _routeBack() {
     this.props.navigator.pop();
@@ -32,7 +21,7 @@ class Stats extends Component{
 
   render() {
     return(
-      <View style={styles.container}>
+      <Viewstyle={styles.container}>
         <Button
           onPress={this._routeBack.bind(this)}
           title="← Go Back"

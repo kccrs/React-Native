@@ -10,14 +10,14 @@ import {
 
 import userContainer from '../containers/userContainer';
 
-class Maps extends Component{
+class Maps extends Component {
   constructor (props) {
-   super(props);
-   this.state = {
-     initialPosition: {},
-     lastPosition: null
-   };
- }
+    super(props);
+    this.state = {
+      initialPosition: {},
+      lastPosition: null
+    };
+  }
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
@@ -69,8 +69,6 @@ class Maps extends Component{
   }
 }
 
-export default userContainer(Maps)
-
 const styles = StyleSheet.create({
   title: {
     fontSize: 42,
@@ -78,3 +76,5 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
 });
+
+export default userContainer(Maps)

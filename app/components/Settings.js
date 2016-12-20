@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
+  Navigator,
+  PickerIOS,
   StyleSheet,
   Text,
-  View,
-  Image,
-  TouchableHighlight,
-  Alert,
   TextInput,
-  TabBarIOS,
-  Navigator,
-  ScrollView,
-  Switch,
-  Animated,
-  Button,
-  PickerIOS
+  TouchableHighlight,
+  View,
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
-//
 import Login from './Login';
 import List from './List';
 import MapView from './MapView';
@@ -58,7 +50,6 @@ class Settings extends Component {
       <View >
         <Text style={styles.title}>Select Fuel Type</Text>
         <PickerIOS
-          style={styles.picker}
           selectedValue={this.state.fuel}
           onValueChange={(choice) => this.setState({fuel: choice})}>
           <PickerItemIOS
@@ -101,30 +92,21 @@ class Settings extends Component {
           value={this.state.zip.toString()}
         />
         <TouchableHighlight
-          style={styles.stateButton}
           underlayColor='#757575'
           onPress={this._findStations.bind(this)}>
-          <Text style={styles.stateButtonText}>Find stations!</Text>
+          <Text>Find stations!</Text>
         </TouchableHighlight>
       </View>
     );
   }
 }
 
-export default foundStationsContainer(Settings)
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 200,
-  },
   title: {
     fontSize: 38,
     margin: 40,
     fontWeight: '300',
   },
 });
+
+export default foundStationsContainer(Settings)

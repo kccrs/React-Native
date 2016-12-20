@@ -48,8 +48,6 @@ class List extends Component {
   }
 }
 
-export default foundStationsContainer(List);
-
 const styles = StyleSheet.create({
   centering: {
     alignItems: 'center',
@@ -66,3 +64,5 @@ const styles = StyleSheet.create({
     marginTop: 20
   }
 });
+
+export default foundStationsContainer(List);
