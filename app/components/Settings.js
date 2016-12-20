@@ -49,6 +49,7 @@ class Settings extends Component {
     fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}&fuel_type=${this.state.fuel}&zip=${this.state.zip}`)
     .then(response => response.json())
     .then(responseJSON => this.props.getStations(responseJSON))
+    .then(() => this._routeToList())
     .catch(error => console.error(error));
  }
 
