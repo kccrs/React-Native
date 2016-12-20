@@ -1,4 +1,5 @@
 import * as types from '../actions/actionTypes';
+import Immutable from 'immutable';
 
 const initialState = [];
 
@@ -8,6 +9,7 @@ const stateCounts = (state = initialState, action) => {
   switch (type) {
     case 'GET_STATE':
       return data;
+
   }
   return state;
 };

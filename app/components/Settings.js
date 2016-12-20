@@ -22,28 +22,28 @@ import foundStationsContainer from '../containers/foundStationsContainer';
 
 class Settings extends Component {
   constructor (props) {
-   super(props);
-   this.state = {
-     fuel: 'ELEC',
-     includePrivate: false,
-     zip: ''
-   };
- }
+    super(props);
+    this.state = {
+      fuel: 'ELEC',
+      includePrivate: false,
+      zip: ''
+    };
+  }
 
- _routeToList(){
-   this.props.navigator.push({
-     component: List,
-     title: 'ListView'
-   });
- }
+  _routeToList(){
+    this.props.navigator.push({
+      component: List,
+      title: 'ListView'
+    });
+  }
 
- _findStations(){
+  _findStations(){
     fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}&fuel_type=${this.state.fuel}&zip=${this.state.zip}`)
     .then(response => response.json())
     .then(responseJSON => this.props.getStations(responseJSON))
     .then(() => this._routeToList())
     .catch(error => console.error(error));
- }
+  }
 
   render() {
     return (
@@ -53,34 +53,34 @@ class Settings extends Component {
           style={styles.picker}
           selectedValue={this.state.fuel}
           onValueChange={(choice) => this.setState({fuel: choice})}>
-            <Item
+          <Item
             label='Electricity'
             value="ELEC"
-          />
+            />
           <Item
             label='Biodiesel'
             value="BD"
-          />
+            />
           <Item
             label='Hydrogen'
             value="HY"
-          />
+            />
           <Item
             label='E85'
             value="E85"
-          />
+            />
           <Item
             label='Compressed Natural Gas'
             value="CNG"
-          />
+            />
           <Item
             label='Liquid Natural Gas'
             value="LNG"
-          />
+            />
           <Item
             label='Liquid Propane Gas'
             value="LPG"
-          />
+            />
         </PickerIOS>
         <Text style={[styles.title, styles.zip]}>Enter Zip Code</Text>
         <TextInput
@@ -91,12 +91,12 @@ class Settings extends Component {
           returnKeyType={'done'}
           onChangeText={(text) => this.setState({zip: text})}
           value={this.state.zip.toString()}
-        />
+          />
         <TouchableHighlight
           style={styles.button}
           underlayColor='#757575'
           onPress={this._findStations.bind(this)}>
-          <Text style={styles.buttonText}>Find stations!</Text>
+          <Text style={styles.buttonText}>Find stations</Text>
         </TouchableHighlight>
       </View>
     );
@@ -157,4 +157,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default foundStationsContainer(Settings)
+export default foundStationsContainer(Settings);

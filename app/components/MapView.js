@@ -42,31 +42,31 @@ class Maps extends Component {
   render() {
     const { user } = this.props;
     const annotes = this.props.stations.fuel_stations ? this.props.stations.fuel_stations.map((s) => {
-                    return {latitude: s.latitude,
-                            longitude: s.longitude,
-                            animateDrop: true}
-                  }) : null;
-    if (user) {
-      return (
-        <View>
-          <Text style={styles.title}>
-            Stations near you:
-          </Text>
-          { this.state.initialPosition.coords ?
-            <MapView
-              annotations={annotes}
-              showsUserLocation={true}
-              style={{height: 600, margin: 0}}
-              region={{
-                latitude: parseFloat(this.state.lastPosition.coords.latitude),
-                longitude: parseFloat(this.state.lastPosition.coords.longitude),
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-              }}
-            />
-            : <ActivityIndicator
-                style={styles.centering}
-                size="large"
+      return {latitude: s.latitude,
+        longitude: s.longitude,
+        animateDrop: true}
+      }) : null;
+      if (user) {
+        return (
+          <View>
+            <Text style={styles.title}>
+              Stations near you:
+            </Text>
+            { this.state.initialPosition.coords ?
+              <MapView
+                annotations={annotes}
+                showsUserLocation={true}
+                style={{height: 600, margin: 0}}
+                region={{
+                  latitude: parseFloat(this.state.lastPosition.coords.latitude),
+                  longitude: parseFloat(this.state.lastPosition.coords.longitude),
+                  latitudeDelta: 0.0922,
+                  longitudeDelta: 0.0421,
+                }}
+                />
+              : <ActivityIndicator
+              style={styles.centering}
+              size="large"
               />
           }
         </View>
@@ -84,6 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default userContainer(
-                foundStationsContainer(Maps)
-              )
+export default userContainer(foundStationsContainer(Maps));

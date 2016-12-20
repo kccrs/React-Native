@@ -41,27 +41,27 @@ class List extends Component {
             style={styles.button}
             onPress={this._routeBack.bind(this)}
             title="← Go Back"
-          />
+            />
         </View>
         { this.props.stations.fuel_stations ?
           this.props.stations.fuel_stations.map((s) => {
             return ( <View key={s.id} style={styles.listItem}>
-                      <Text style={styles.title}>{s.station_name}</Text>
-                      <Text>{s.station_phone}</Text>
-                      <Text>{s.access_days_time}</Text>
-                      <Text>{s.street_address}</Text>
-                      <Text>{s.intersection_directions}</Text>
-                    </View>
-              );
-            })
-          : <ActivityIndicator
-            style={styles.centering}
-            size="large"
-            />
-        }
-      </ScrollView>
-    );
-  }
+              <Text style={styles.title}>{s.station_name}</Text>
+              <Text>{s.station_phone}</Text>
+              <Text>{s.access_days_time}</Text>
+              <Text>{s.street_address}</Text>
+              <Text>{s.intersection_directions}</Text>
+            </View>
+          );
+        })
+        : <ActivityIndicator
+        style={styles.centering}
+        size="large"
+        />
+    }
+  </ScrollView>
+);
+}
 }
 
 const styles = StyleSheet.create({
@@ -89,6 +89,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomColor: 'black',
     borderBottomWidth: 1
+  },
+  button: {
+    marginTop: 10
   }
 });
 
