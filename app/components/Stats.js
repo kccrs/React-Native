@@ -50,20 +50,20 @@ class Stats extends Component{
                 size="large"
                 />
             </View>
-            :  this.transformData(this.props.nationalCounts).map(str => <Text>{str}</Text>)
+            :  this.transformData(this.props.nationalCounts).map(str => <Text key={Math.random()}>{str}</Text>)
           }
         <Text style={styles.chart}>
           State Chart goes here!
         </Text>
         { Array.isArray(this.props.stateCounts) ?
-          <View> 
+          <View>
             <Text>Loading data...</Text>
             <ActivityIndicator
               style={styles.centering}
               size="large"
               />
           </View>
-            :  this.transformData(this.props.stateCounts).map(str => <Text>{str}</Text>)
+            :  this.transformData(this.props.stateCounts).map(str => <Text key={Math.random()}>{str}</Text>)
           }
       </ScrollView>
     )
