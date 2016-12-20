@@ -35,8 +35,7 @@ class Stats extends Component{
     this.props.navigator.pop();
   }
 
-  transformData(){
-    let obj = this.props.nationalCounts
+  transformData(obj){
     let arr = []
     for(let thing in obj){
       let subobj = obj[thing]
@@ -48,23 +47,26 @@ class Stats extends Component{
 
   render() {
     return(
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <Button
           onPress={this._routeBack.bind(this)}
           title="← Go Back"
           / >
         <Text style={styles.chart}>
-          State Chart goes here!
+          National Chart goes here!
         </Text>
         { Array.isArray(this.props.nationalCounts) ?
             <Text>no data</Text>
-            :  this.transformData().map(str => <Text>{str}</Text>)
+            :  this.transformData(this.props.nationalCounts).map(str => <Text>{str}</Text>)
           }
-
         <Text style={styles.chart}>
-          National Chart goes here!
+          State Chart goes here!
         </Text>
-      </View>
+        { Array.isArray(this.props.stateCounts) ?
+            <Text>no data</Text>
+            :  this.transformData(this.props.stateCounts).map(str => <Text>{str}</Text>)
+          }
+      </ScrollView>
     )
   }
 }
@@ -75,7 +77,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fff',
-    justifyContent: 'flex-start',
     alignItems: 'center',
     paddingTop: 50
   },
