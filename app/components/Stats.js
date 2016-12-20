@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import {
   Button,
   Navigator,
@@ -8,15 +9,32 @@ import {
   View
 } from 'react-native';
 
-import userContainer from '../containers/userContainer';
+import fuelStatsContainer from '../containers/fuelStatsContainer';
 
-class Stats extends Component {
+class Stats extends Component{
   constructor (props) {
-    super(props);
+   super(props);
+ }
+
+  componentDidMount(){
+  }
+
+  componentDidUpdate(){
   }
 
   _routeBack() {
     this.props.navigator.pop();
+  }
+
+  transformData(){
+    let obj = this.props.nationalCounts;
+    let arr = [];
+    for(let thing in obj){
+      let subobj = obj[thing];
+      let value = subobj['total'];
+      arr.push(`${thing}: ${value}`);
+    }
+    return arr;
   }
 
   render() {
@@ -29,6 +47,10 @@ class Stats extends Component {
         <Text style={styles.chart}>
           State Chart goes here!
         </Text>
+        { Array.isArray(this.props.nationalCounts) ?
+            <Text>no data</Text>
+            :  this.transformData().map(str => <Text>{str}</Text>)
+          }
         <Text style={styles.chart}>
           National Chart goes here!
         </Text>
@@ -53,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default userContainer(Stats);
+export default fuelStatsContainer(Stats);
