@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Immutable, { List } from 'immutable';
+import { VictoryBar } from "victory-native";
 import {
   Button,
   Navigator,
@@ -10,11 +12,17 @@ import {
   ActivityIndicator
 } from 'react-native';
 
+import { VictoryPie } from 'victory-native';
+
 import fuelStatsContainer from '../containers/fuelStatsContainer';
+import userContainer from '../containers/userContainer';
 
 class Stats extends Component {
   constructor (props) {
     super(props);
+    this.state = {
+      pieData: []
+    };
   }
 
   _routeBack() {
@@ -26,48 +34,57 @@ class Stats extends Component {
     for(let thing in obj){
       let subobj = obj[thing];
       let value = subobj['total'];
-      arr.push(`${thing}: ${value}`);
+      arr.push({fueltype: thing, count: value});
     }
     return arr;
   }
 
   render() {
-    return(
+    return (
       <ScrollView contentContainerStyle={styles.container}>
         <Button
+          style={styles.button}
           onPress={this._routeBack.bind(this)}
           title="← Go Back"
           />
         <Text style={styles.chart}>
-          National Chart goes here!
-        </Text>
-        { Array.isArray(this.props.nationalCounts) ?
-          <View>
-            <Text>Loading data...</Text>
-            <ActivityIndicator
-              style={styles.centering}
-              size="large"
-              />
-          </View>
-          :  this.transformData(this.props.nationalCounts).map(str => <Text key={Math.random()}>{str}</Text>)
-        }
-        <Text style={styles.chart}>
-          State Chart goes here!
+          National distribution of alternative fuels:
         </Text>
         { Array.isArray(this.props.stateCounts) ?
           <View>
-            <Text>Loading data...</Text>
+            <Text>Loading chart...</Text>
             <ActivityIndicator
               style={styles.centering}
               size="large"
               />
           </View>
-          :  this.transformData(this.props.stateCounts).map(str => <Text key={Math.random()}>{str}</Text>)
-        }
-      </ScrollView>
-    )
-  }
-}
+          :  <VictoryPie
+          colorScale='green'
+          data={this.transformData(this.props.nationalCounts)}
+          x="fueltype"
+          y="count"
+          /> }
+          <Text style={styles.chart}>
+            Your state&apos;s distribution of alternative fuels:
+          </Text>
+          { Array.isArray(this.props.stateCounts) ?
+            <View>
+              <Text>Loading charts...</Text>
+              <ActivityIndicator
+                style={styles.centering}
+                size="large"
+                />
+            </View>
+            :  <VictoryPie
+            colorScale='green'
+            data={this.transformData(this.props.stateCounts)}
+            x="fueltype"
+            y="count"
+            /> }
+          </ScrollView>
+        )
+      }
+    }
 
 const styles = StyleSheet.create({
   container: {
@@ -76,6 +93,9 @@ const styles = StyleSheet.create({
   chart: {
     fontSize: 30,
   },
+  button: {
+    marginTop: 20
+  }
 });
 
-export default fuelStatsContainer(Stats);
+export default userContainer(fuelStatsContainer(Stats));

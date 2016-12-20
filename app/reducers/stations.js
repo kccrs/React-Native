@@ -1,7 +1,7 @@
 import * as types from '../actions/actionTypes';
+import Immutable from 'immutable';
 
-
-const initialState = Immutable.List( [] );
+const initialState = [];
 
 const stations = (state = initialState, action) => {
   const { type, data } = action;

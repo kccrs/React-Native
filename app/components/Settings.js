@@ -96,7 +96,7 @@ class Settings extends Component {
           style={styles.button}
           underlayColor='#757575'
           onPress={this._findStations.bind(this)}>
-          <Text style={styles.buttonText}>Find stations!</Text>
+          <Text style={styles.buttonText}>Find stations</Text>
         </TouchableHighlight>
       </View>
     );

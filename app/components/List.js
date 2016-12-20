@@ -17,6 +17,13 @@ import MapView from './MapView';
 import Profile from './Profile';
 import { NREL_API_KEY } from '../../Auth0-credentials';
 
+const data = [
+    [0, 1],
+    [1, 3],
+    [3, 7],
+    [4, 9],
+];
+
 class List extends Component {
   constructor (props) {
    super(props);
@@ -72,12 +79,19 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20
   },
+  chart: {
+    width: 200,
+    height: 200,
+  },
   listItem: {
     margin: 5,
     padding: 5,
     paddingBottom: 10,
     borderBottomColor: 'black',
     borderBottomWidth: 1
+  },
+  button: {
+    marginTop: 10
   }
 });
 
