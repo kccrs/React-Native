@@ -6,7 +6,9 @@ import {
   Navigator,
   StyleSheet,
   Text,
-  View
+  ScrollView,
+  View,
+  ActivityIndicator
 } from 'react-native';
 
 import fuelStatsContainer from '../containers/fuelStatsContainer';
@@ -41,14 +43,26 @@ class Stats extends Component{
           National Chart goes here!
         </Text>
         { Array.isArray(this.props.nationalCounts) ?
-            <Text>no data</Text>
+            <View>
+              <Text>Loading data...</Text>
+              <ActivityIndicator
+                style={styles.centering}
+                size="large"
+                />
+            </View>
             :  this.transformData(this.props.nationalCounts).map(str => <Text>{str}</Text>)
           }
         <Text style={styles.chart}>
           State Chart goes here!
         </Text>
         { Array.isArray(this.props.stateCounts) ?
-            <Text>no data</Text>
+          <View> 
+            <Text>Loading data...</Text>
+            <ActivityIndicator
+              style={styles.centering}
+              size="large"
+              />
+          </View>
             :  this.transformData(this.props.stateCounts).map(str => <Text>{str}</Text>)
           }
       </ScrollView>
