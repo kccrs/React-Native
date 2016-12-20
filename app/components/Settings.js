@@ -13,7 +13,8 @@ import {
   ScrollView,
   Switch,
   Animated,
-  Button
+  Button,
+  PickerIOS
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
@@ -21,16 +22,62 @@ import userContainer from '../containers/userContainer';
 import Login from './Login';
 import MapView from './MapView';
 import Profile from './Profile';
+var PickerItemIOS = PickerIOS.Item;
+
 
 export default class Settings extends Component {
   constructor (props) {
    super(props);
+   this.state = {
+     fuel: 'ELEC',
+     includePrivate: false
+   }
  }
 
   render() {
     return (
       <View >
-        <Text style={styles.title}>This is the Settings Page</Text>
+        <Text style={styles.title}>Select Fuel Type</Text>
+        <PickerIOS
+          style={styles.picker}
+          selectedValue={this.state.fuel}
+          onValueChange={(choice) => this.setState({fuel: choice})}>
+          <PickerItemIOS
+            label='Electricity'
+            value="ELEC"
+          />
+          <PickerItemIOS
+            label='Biodiesel'
+            value="BD"
+          />
+          <PickerItemIOS
+            label='Hydrogen'
+            value="HY"
+          />
+          <PickerItemIOS
+            label='E85'
+            value="E85"
+          />
+          <PickerItemIOS
+            label='Compressed Natural Gas'
+            value="CNG"
+          />
+          <PickerItemIOS
+            label='Liquid Natural Gas'
+            value="LNG"
+          />
+          <PickerItemIOS
+            label='Liquid Propane Gas'
+            value="LPG"
+          />
+        </PickerIOS>
+        {this.state.fuel==='ELEC' ?
+          <View>
+          <Switch
+            onValueChange={(value) => this.setState({includePrivate: !this.state.includePrivate})}
+            style={{marginBottom: 10}}
+            value={this.state.includePrivate} />
+          </View> : null}
       </View>
     );
   }
