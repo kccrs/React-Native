@@ -9,6 +9,7 @@ import {
   Text,
   View
 } from 'react-native';
+import { VictoryBar } from "victory-native";
 
 import foundStationsContainer from '../containers/foundStationsContainer';
 
@@ -29,6 +30,7 @@ class List extends Component {
   render() {
     return (
       <ScrollView>
+        <VictoryBar/>
         <View>
           <Button
             style={styles.button}
