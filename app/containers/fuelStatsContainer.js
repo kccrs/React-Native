@@ -2,7 +2,8 @@ import { connect } from 'react-redux'
 import { actionCreators } from '../actions/searchActions'
 
 const mapStateToProps = (state) => {
-  return { nationalCounts: state.nationalCounts }
+  return { nationalCounts: state.nationalCounts,
+            stateCounts: state.stateCounts }
 }
 
 const mapDispatchToProps = (dispatch) => {

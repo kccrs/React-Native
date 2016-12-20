@@ -23,11 +23,22 @@ class Profile extends Component{
     };
   }
 
-  _getStationStats(){
+  _getNationalStats(){
     fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}`)
     .then(response => response.json())
-    .then(responseJSON => this.props.getNationalStats(responseJSON.station_counts.fuels))
-    .then(this._routeToStats());
+    .then(responseJSON => this.props.getNationalStats(responseJSON.station_counts.fuels));
+  }
+
+  _getStationStats(){
+    this._getNationalStats();
+    this._getStateStats();
+    this._routeToStats();
+  }
+
+  _getStateStats(){
+    fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}&state=${this.state.stateChoice}`)
+    .then(response => response.json())
+    .then(responseJSON => this.props.getStateStats(responseJSON.station_counts.fuels));
   }
 
   _routeToStats(){
