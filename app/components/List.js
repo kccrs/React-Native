@@ -16,7 +16,6 @@ import Login from './Login';
 import MapView from './MapView';
 import Profile from './Profile';
 import { NREL_API_KEY } from '../../Auth0-credentials';
-import Chart from 'react-native-chart';
 
 const data = [
     [0, 1],
@@ -37,12 +36,6 @@ class List extends Component {
   render() {
     return (
       <ScrollView>
-      <Chart
-          style={styles.chart}
-          data={data}
-          verticalGridStep={5}
-          type="line"
-       />
         <View>
           <Button
             style={styles.button}
