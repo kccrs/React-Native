@@ -26,13 +26,21 @@ import Profile from './Profile';
 export default class Settings extends Component {
   constructor (props) {
    super(props);
+   this.state = {
+     data: null
+   }
  }
+
+componentDidMount(){
+  fetch('https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=EhCEXrfKfuNMgGH7Vn9Y2ggCbTeBhGB83xlLH8Xp&fuel_type=ELEC&zip=80204').then((response) => response.json()).then((responseJSON)=>{this.setState({data: responseJSON})});
+}
 
   render() {
     return (
-      <View >
-        <Text style={styles.title}>This is the List View</Text>
-      </View>
+      <ScrollView>
+        { this.state.data ?
+        this.state.data.fuel_stations.map(s => <Text style={styles.title}>{s.station_name}</Text>) : <Text>loading...</Text>}
+      </ScrollView>
     );
   }
 }

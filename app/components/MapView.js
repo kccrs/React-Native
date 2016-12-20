@@ -9,13 +9,16 @@ import {
   Alert,
   TextInput,
   ScrollView,
+  MapView,
   Switch,
   Animated
 } from 'react-native';
 
+// import MapView from 'react-native-maps';
+
 import userContainer from '../containers/userContainer';
 
-class MapView extends Component{
+class Maps extends Component{
   constructor (props) {
    super(props);
    this.state = {
@@ -51,6 +54,15 @@ componentWillUnmount() {
          <Text style={styles.title}>
           Hello!  Your location is: {this.state.lastPosition}
          </Text>
+         <MapView
+            style={{height: 200, margin: 40}}
+            region={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          />
        </View>
      )
    }
@@ -58,20 +70,23 @@ componentWillUnmount() {
  }
 }
 
-export default userContainer(MapView)
+export default userContainer(Maps)
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    justifyContent: 'flex-start',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    paddingTop: 200,
   },
-  title: {
-    fontSize: 42,
-    margin: 40,
-    fontWeight: '300',
+  map: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
 });

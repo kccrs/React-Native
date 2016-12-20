@@ -14,6 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
   - Lock (1.28.0):
     - Lock/Core (= 1.28.0)
     - Lock/UI (= 1.28.0)
@@ -36,23 +41,62 @@ PODS:
   - Lock/WebView (1.28.0):
     - Lock/CoreUI
   - Masonry (0.6.4)
+  - React/Core (0.39.2):
+    - React/CSSLayout
+  - React/CSSLayout (0.39.2)
+  - React/RCTActionSheet (0.39.2):
+    - React/Core
+  - React/RCTGeolocation (0.39.2):
+    - React/Core
+  - React/RCTImage (0.39.2):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTLinkingIOS (0.39.2):
+    - React/Core
+  - React/RCTNetwork (0.39.2):
+    - React/Core
+  - React/RCTSettings (0.39.2):
+    - React/Core
+  - React/RCTText (0.39.2):
+    - React/Core
+  - React/RCTVibration (0.39.2):
+    - React/Core
+  - React/RCTWebSocket (0.39.2):
+    - React/Core
   - SimpleKeychain (0.7.0)
   - TouchIDAuth (0.2.0):
     - SimpleKeychain (~> 0.3)
 
 DEPENDENCIES:
+  - GoogleMaps
   - Lock (~> 1.26)
   - Lock/Email
   - Lock/SMS
   - Lock/TouchID
+  - React/Core (from `../node_modules/react-native`)
+  - React/RCTActionSheet (from `../node_modules/react-native`)
+  - React/RCTGeolocation (from `../node_modules/react-native`)
+  - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTLinkingIOS (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTSettings (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTVibration (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   Lock: f66a990dccd844d393c5803e40bf6c9eca05ef2d
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  React: 8c26f75b7d3a78fd1ddad8ab0e40e1a3e945960a
   SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
   TouchIDAuth: 0cf861f58a2cacfc1c12cb02de4850729d943c81
 
-PODFILE CHECKSUM: 42e925ae2e8732cdf9f5e8fb922c186008ef75d5
+PODFILE CHECKSUM: df07dfc16f8a46cf2cad6228d1fe69fe3610a915
 
 COCOAPODS: 1.1.1

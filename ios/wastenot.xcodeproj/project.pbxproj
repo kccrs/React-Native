@@ -13,6 +13,7 @@
 		00C302E91ABCBA2D00DB3ED1 /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* wastenotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* wastenotTests.m */; };
+		00FF3A52C8327C7056981CD6 /* Pods_wastenotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163BB5F64E965593AD24CBFD /* Pods_wastenotTests.framework */; };
 		03321CE27881454189B1D1F8 /* libA0RNLock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D79075DA7CB3418A98BB5C92 /* libA0RNLock.a */; };
 		133E29F31AD74F7200F7D852 /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -23,10 +24,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		33FC9308CC9478AE314C5963 /* libPods-wastenotTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFDF0D43514C4D873ED68D /* libPods-wastenotTests.a */; };
+		4F3367DF272E58927784DBAC /* Pods_wastenot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F070A907827D2D06B3BFE9F /* Pods_wastenot.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		C5EA79BC28C5D2014E31CF42 /* libPods-wastenot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0E9832764A1EB049589550 /* libPods-wastenot.a */; };
+		8A88AC7D131B4C168270B80E /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 230335DDDFA64AC2B6DF7861 /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		00E356EE1AD99517003FC87E /* wastenotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wastenotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* wastenotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wastenotTests.m; sourceTree = "<group>"; };
+		0F070A907827D2D06B3BFE9F /* Pods_wastenot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wastenot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1159BD1E7DF27DECBB606528 /* Pods-wastenot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wastenot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wastenot/Pods-wastenot.debug.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -144,14 +146,15 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = wastenot/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = wastenot/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		163BB5F64E965593AD24CBFD /* Pods_wastenotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wastenotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		230335DDDFA64AC2B6DF7861 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = archive.ar; name = libAirMaps.a; path = libAirMaps.a; sourceTree = "<group>"; };
 		3CE73C7B4B7AE7BF48691DFB /* Pods-wastenot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wastenot.release.xcconfig"; path = "Pods/Target Support Files/Pods-wastenot/Pods-wastenot.release.xcconfig"; sourceTree = "<group>"; };
 		462A53E1A8674DF6851E529B /* A0RNLock.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = A0RNLock.xcodeproj; path = "../node_modules/react-native-lock/ios/A0RNLock.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		6C0E9832764A1EB049589550 /* libPods-wastenot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wastenot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8C3C96C9268BBC620CDADF21 /* Pods-wastenotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wastenotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wastenotTests/Pods-wastenotTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9BFFDF0D43514C4D873ED68D /* libPods-wastenotTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wastenotTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB722C6CC63240C894993DA2 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		D79075DA7CB3418A98BB5C92 /* libA0RNLock.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = archive.ar; name = libA0RNLock.a; path = libA0RNLock.a; sourceTree = "<group>"; };
 		EA851F11763F9B0D028E09C2 /* Pods-wastenotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wastenotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wastenotTests/Pods-wastenotTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,7 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* ReferenceProxy in Frameworks */,
-				33FC9308CC9478AE314C5963 /* libPods-wastenotTests.a in Frameworks */,
+				00FF3A52C8327C7056981CD6 /* Pods_wastenotTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +185,8 @@
 				00C302EA1ABCBA2D00DB3ED1 /* ReferenceProxy in Frameworks */,
 				139FDEF61B0652A700C62182 /* ReferenceProxy in Frameworks */,
 				03321CE27881454189B1D1F8 /* libA0RNLock.a in Frameworks */,
-				C5EA79BC28C5D2014E31CF42 /* libPods-wastenot.a in Frameworks */,
+				8A88AC7D131B4C168270B80E /* libAirMaps.a in Frameworks */,
+				4F3367DF272E58927784DBAC /* Pods_wastenot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,8 +291,8 @@
 		3123169E84BCF0AD8D54ACF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6C0E9832764A1EB049589550 /* libPods-wastenot.a */,
-				9BFFDF0D43514C4D873ED68D /* libPods-wastenotTests.a */,
+				0F070A907827D2D06B3BFE9F /* Pods_wastenot.framework */,
+				163BB5F64E965593AD24CBFD /* Pods_wastenotTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -336,6 +340,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				462A53E1A8674DF6851E529B /* A0RNLock.xcodeproj */,
+				AB722C6CC63240C894993DA2 /* AirMaps.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -765,6 +770,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wastenot.app/wastenot";
@@ -782,6 +788,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -865,6 +872,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -906,6 +914,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
